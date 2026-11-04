@@ -1,0 +1,78 @@
+{
+  "repository": "lexuanbao258-collab/dxos-open-core",
+  "ref": "0e789cffa11447f3acef25d0e582bf25ed46c7b4",
+  "checkedOn": "2026-11-04",
+  "verification": "Source inspection only; no DX-OS runtime or API requests executed",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "blobSha": "6b029c51f67f2b8cc6971692fd3702aab12ce6f6",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/CHANGELOG.md"
+    },
+    {
+      "path": "README.md",
+      "blobSha": "fb13147b2441d5730570460b75166eecc3d14ef9",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/README.md"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/common/error/ApiError.java",
+      "blobSha": "0f61c089f0610b0738955501695bd2569fb3e0de",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/common/error/ApiError.java"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/gateway/helpdesk/HelpdeskController.java",
+      "blobSha": "20facd7df094080311714dffb16dd8403f5cf0f3",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/gateway/helpdesk/HelpdeskController.java"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/gateway/helpdesk/HelpdeskExceptionHandler.java",
+      "blobSha": "ed6feb9280eda8b103d50079496ad6f6169fe378",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/gateway/helpdesk/HelpdeskExceptionHandler.java"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/gateway/workflow/controller/WorkflowExceptionHandler.java",
+      "blobSha": "0ef9472d2805e8aa1ed31c131660c7f00ce3bf6a",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/gateway/workflow/controller/WorkflowExceptionHandler.java"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/gateway/workflow/dto/WorkflowVersionDeserializer.java",
+      "blobSha": "377f81d3678d06d4404af283e5afb5210558dd93",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/gateway/workflow/dto/WorkflowVersionDeserializer.java"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/infrastructure/identity/security/SecurityConfig.java",
+      "blobSha": "057ed1ab8ea774c0d269cc848aeb8fb62376c8e8",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/infrastructure/identity/security/SecurityConfig.java"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/infrastructure/workflow/HelpdeskConfiguration.java",
+      "blobSha": "0800f671d31fd6b84264269fa076c88861cf6473",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/infrastructure/workflow/HelpdeskConfiguration.java"
+    },
+    {
+      "path": "backend/src/main/java/com/tricore/dxos/infrastructure/workflow/HelpdeskService.java",
+      "blobSha": "dd31b3df5da419df4e54cc00206be94726544f57",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/java/com/tricore/dxos/infrastructure/workflow/HelpdeskService.java"
+    },
+    {
+      "path": "backend/src/main/resources/application.yml",
+      "blobSha": "77ff36b868334b1436e2abc0f0def2da97a5fd6c",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/main/resources/application.yml"
+    },
+    {
+      "path": "backend/src/test/java/com/tricore/dxos/gateway/helpdesk/HelpdeskErrorContractTest.java",
+      "blobSha": "405b7a48a1427102425bf4c74267fc8787460c1e",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/backend/src/test/java/com/tricore/dxos/gateway/helpdesk/HelpdeskErrorContractTest.java"
+    },
+    {
+      "path": "docs/00-project/scope-and-mvp.md",
+      "blobSha": "977dc3c54ea8d61002f9bff069f91d834bfcadee",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/docs/00-project/scope-and-mvp.md"
+    },
+    {
+      "path": "portal-bff/src/main/java/com/tricore/dxos/portal/PortalSessionController.java",
+      "blobSha": "d05082743f3e7d67beaadd77578c71c7907c2bc6",
+      "url": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/0e789cffa11447f3acef25d0e582bf25ed46c7b4/portal-bff/src/main/java/com/tricore/dxos/portal/PortalSessionController.java"
+    }
+  ]
+}
