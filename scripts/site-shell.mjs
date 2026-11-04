@@ -5,11 +5,11 @@ import path from 'node:path';
 const external='target="_blank" rel="noopener noreferrer"';
 export function linksFor(file){
   const prefix='../'.repeat(file.split('/').length-1);
-  return {prefix,home:prefix+'index.html',docs:prefix+'docs/',blog:prefix+'blog/',api:prefix+'docs/api/',survey:prefix+'survey.html'};
+  return {prefix,home:prefix+'index.html',docs:prefix+'docs/',blog:prefix+'blog/',api:prefix+'docs/api/',survey:prefix+'survey.html',project:prefix+'projects/dx-os.html',community:prefix+'index.html#cong-dong'};
 }
 export function header(file){
-  const p=linksFor(file),active=file.startsWith('docs/api/')?'api':file.startsWith('docs/')?'docs':/^blog(?:\/|\.html)/.test(file)?'blog':file==='index.html'?'home':'';
-  const items=[['home','Giới thiệu'],['docs','Documentation'],['blog','Blog'],['api','API Reference'],['survey','Khảo sát']];
+  const p=linksFor(file),active=file.startsWith('docs/api/')?'api':file.startsWith('docs/')?'docs':/^blog(?:\/|\.html)/.test(file)?'blog':file==='index.html'?'home':file.startsWith('projects/')?'project':'';
+  const items=[['home','Giới thiệu'],['project','Dự án'],['blog','Blog'],['community','Cộng đồng']];
   const nav=()=>items.map(([key,label])=>`<a href="${p[key]}"${active===key?' aria-current="page"':''}>${label}</a>`).join('');
   return `<!-- site-header:start -->
 <header class="site-header"><div class="site-container site-header-inner">
@@ -22,10 +22,10 @@ export function header(file){
 export function footer(file){
  const p=linksFor(file);
  return `<!-- site-footer:start --><footer class="site-footer"><div class="site-container"><div class="site-footer-grid">
- <div><a class="site-brand" href="${p.home}"><span class="site-mark" aria-hidden="true"></span>opentrix</a><p>Yêu cầu rõ ràng. Vận hành liền mạch.<br>Phát triển bởi TRICORE trên nền tảng DX-OS Open-Core.</p></div>
- <nav aria-label="Tài nguyên"><h2>Tài nguyên</h2><a href="${p.docs}">Documentation</a><a href="${p.api}">API Reference</a><a href="${p.blog}">Blog</a><a href="https://github.com/lexuanbao258-collab/dxos-open-core" ${external}>Mã nguồn DX-OS Open-Core ↗</a></nav>
+ <div><a class="site-brand" href="${p.home}"><span class="site-mark" aria-hidden="true"></span>opentrix</a><p>Đội sinh viên TRICORE.<br>Cùng xây dựng và chia sẻ phần mềm nguồn mở.</p></div>
+ <nav aria-label="Tài nguyên"><h2>Tài nguyên</h2><a href="${p.project}">Dự án DX-OS Open-Core</a><a href="${p.blog}">Blog</a><a href="https://github.com/lexuanbao258-collab/dxos-open-core" ${external}>Mã nguồn DX-OS Open-Core ↗</a></nav>
  <nav aria-label="Giải pháp và kết nối"><h2>Khám phá</h2><a href="${p.prefix}solutions/helpdesk.html">IT Helpdesk</a><a href="${p.survey}">Khảo sát doanh nghiệp</a><a href="${p.prefix}solutions.html">Các giải pháp</a><a href="${p.prefix}technology.html">Kiến trúc &amp; công nghệ</a><a href="${p.prefix}about.html">Về TRICORE</a></nav>
- </div><div class="site-footer-bottom"><span>© 2026 opentrix · TRICORE</span><a href="${p.prefix}status.html">Trạng thái</a><a href="#top">Lên đầu trang</a></div></div></footer><!-- site-footer:end -->`;
+ </div><div class="site-footer-bottom"><span>© 2026 opentrix · TRICORE</span><a href="${p.project}#lo-trinh">Lộ trình dự án</a><a href="#top">Lên đầu trang</a></div></div></footer><!-- site-footer:end -->`;
 }
 export function metadata(title,description){
  const e=s=>s.replaceAll('&','&amp;').replaceAll('"','&quot;');
