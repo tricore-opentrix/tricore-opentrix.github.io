@@ -9,9 +9,6 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
 http.createServer(async (req, res) => {
   try {
     let pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-    // Also preview the GitHub Pages project prefix.
-    if (pathname === '/trakzor-site') pathname = '/';
-    else if (pathname.startsWith('/trakzor-site/')) pathname = pathname.slice('/trakzor-site'.length);
     const file = path.resolve(root, '.' + pathname);
     const relative = path.relative(root, file);
     if (relative.startsWith('..') || path.isAbsolute(relative) || relative.split(path.sep).some(part => part.startsWith('.')) || relative.split(path.sep)[0] === 'export') {
@@ -28,4 +25,4 @@ http.createServer(async (req, res) => {
   } catch {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Không tìm thấy trang.');
   }
-}).listen(port, '127.0.0.1', () => console.log(`opentrix preview: http://localhost:${port}/trakzor-site/`));
+}).listen(port, '127.0.0.1', () => console.log(`opentrix preview: http://localhost:${port}/`));

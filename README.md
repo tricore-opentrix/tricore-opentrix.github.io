@@ -1,43 +1,55 @@
-# opentrix — website giới thiệu DX-OS Open-Core
+# opentrix · TRICORE
 
-Website tĩnh của TRICORE, tích hợp Landing Hero 2 và Documentation R10. opentrix là thương hiệu website; DX-OS Open-Core là nền tảng và tên repository mã nguồn.
+Website giới thiệu đội sinh viên **TRICORE**: thành viên, dự án, blog, cộng đồng và liên hệ. DX-OS Open-Core là dự án tiêu biểu dự thi OLP Phần mềm nguồn mở 2026; tài liệu kỹ thuật chính thức thuộc repo sản phẩm.
 
-Các đường dẫn chính trên GitHub Pages: `/trakzor-site/`, `/trakzor-site/docs/`, `/trakzor-site/blog/`, `/trakzor-site/docs/api/`. Tất cả URL `.html` cũ vẫn được giữ. Blog giữ tìm kiếm, bộ lọc và 8 bài viết hiện có.
+- Website: https://tricore-opentrix.github.io/
+- GitHub đội: https://github.com/tricore-opentrix
+- Mã nguồn sản phẩm: https://github.com/lexuanbao258-collab/dxos-open-core
 
-API Reference giới hạn ở 9 route Helpdesk Backend đã đọc từ controller, service, security và error handlers tại `0e789cffa11447f3acef25d0e582bf25ed46c7b4`. Manifest nguồn nằm ở `docs/api/source-manifest.json`; đây không phải OpenAPI hoặc bằng chứng chạy API/LIVE. Xem trang dự án để theo dõi phiên bản.
+## Xem trước
 
-## Xem trước local
+Website tĩnh, không framework, không build và không cần cài dependency. Cần Node.js LTS:
 
-Yêu cầu Node.js 18 trở lên; website không cần build hoặc cài dependency.
-
-```powershell
-Set-Location 'D:\olp\trakzor-site'
+```sh
 node scripts/preview.mjs
 ```
 
-Mở http://localhost:4173/trakzor-site/ (mô phỏng project path GitHub Pages) hoặc http://localhost:4173/. Dừng bằng Ctrl+C.
+Mở http://localhost:4173/. Dừng bằng Ctrl+C. Các trang dùng đường dẫn tương đối và được phục vụ từ gốc domain.
 
-## Kiểm tra liên kết
+## Chỉnh sửa và kiểm tra
 
-```powershell
+Thông tin đội, liên kết và metadata riêng từng trang nằm trong `assets/config.js`. Header, footer và metadata sinh từ `scripts/site-shell.mjs`; HTML sinh ra đọc được khi tắt JavaScript.
+
+```sh
+node scripts/sync-shell.mjs
 node scripts/check-links.mjs
-node scripts/check-links.mjs --external
 ```
 
-Kiểm tra tất cả trang HTML, asset nội bộ, anchor, tiêu đề và metadata thương hiệu. Tuỳ chọn --external gửi HEAD tới các liên kết công khai; có thể bị dịch vụ ngoài giới hạn truy cập.
+Kiểm tra cú pháp từng file bằng `node --check`. Trên Bash:
 
-Header, footer, metadata và theme được sinh thành HTML tĩnh từ `scripts/site-shell.mjs`. Khi sửa shell, chạy `node scripts/sync-shell.mjs`, rồi kiểm tra link và JavaScript. Website không cần JavaScript để đọc trang hoặc dùng menu chính. Documentation có tìm kiếm, phím `/`, Escape, sao chép code và vùng cuộn chỉ vào Tab khi cần.
+```sh
+for file in assets/*.js docs/*.js scripts/*.mjs; do node --check "$file" || exit 1; done
+```
 
-R10 dùng các token thiết kế trong `assets/tokens.css`, style Landing trong `assets/landing.css` và style Documentation trong `docs/docs.css`. Shell và điều chỉnh tích hợp nằm trong `assets/unified.css` / `assets/unified.js`. Font Be Vietnam Pro được tự phục vụ từ asset sẵn có; giữ `assets/FONT-LICENSE.txt`, không tải Google Fonts.
+Workflow `.github/workflows/site-check.yml` chạy trên Pull request và push vào main, chỉ kiểm tra, không deploy. Kiểm tra mặc định xác minh URL nội bộ, fragment, asset và metadata; `--external` kiểm tra HTTP liên kết ngoài.
 
-Repo không có cấu hình lint. Các file JavaScript có thể kiểm tra bằng `node --check <file>`. Không coi kết quả kiểm tra website là nghiệm thu DX-OS, API, thiết bị thật hoặc trình đọc màn hình.
+## Tài liệu sản phẩm
 
-## Cấu trúc và xuất bản
+Giữ `docs/` hoạt động đến khi nhóm merge PR chuyển tài liệu bên repo DX-OS Open-Core. Công cụ tùy chọn `python scripts/export-docs.py` (Python 3, chỉ thư viện chuẩn) xuất 8 bản Markdown vào `export/dxos-docs/` để review. `export/` bị Git bỏ qua, không có trong sitemap và không được preview phục vụ. Các bản xuất không được commit lên Pages.
 
-Giữ nguyên các trang .html, thư mục articles/, solutions/, assets/ và .nojekyll. Dùng đường dẫn tương đối để phục vụ tại /trakzor-site/ trên GitHub Pages. Chạy trực tiếp từ thư mục gốc, không cần framework hoặc rewrite.
+## Thiết kế và khả năng truy cập
 
-Metadata chia sẻ dùng ảnh assets/share.png và URL dự kiến https://lexuanbao258-collab.github.io/trakzor-site/assets/share.png. Nếu đổi host hoặc tên repository, cập nhật og:image và twitter:image trên các trang. Nền tảng và các URL GitHub vẫn giữ tên dxos-open-core.
+`assets/tokens.css` chứa màu, chữ và khoảng cách; `assets/landing.css` chứa component “Vết”; `assets/unified.css` và `assets/unified.js` chứa shell và tương tác dùng chung. `docs/docs.css` giữ bố cục riêng của tài liệu, dùng token chung. Font Be Vietnam Pro tự host; không CDN, Google Fonts hay tracking. Giữ `assets/FONT-LICENSE.txt`.
 
-Thay đổi tích hợp nằm trên nhánh local `feature/trakzor-unified-site`, chưa commit, push hoặc deploy. Một số trang R10 giữ `noindex,nofollow` trong giai đoạn chờ duyệt; chủ repo cần duyệt nội dung/trạng thái và quyết định chính sách index trước khi xuất bản. Không merge main hoặc deploy công khai khi chưa được duyệt.
+## Giấy phép
 
-Nguồn nội dung ban đầu: bản TRAKZOR_DEPLOY_READY_20261031.zip đã rà soát, loại bỏ số liệu khảo sát chưa xác minh. Các mốc trạng thái nền tảng trong website được giữ theo ngày đối chiếu 29/10/2026.
+- Mã website: Apache-2.0, toàn văn tại `LICENSE`.
+- Font: OFL-1.1, tại `assets/FONT-LICENSE.txt`.
+- Nội dung bài viết: <span data-todo="Nhóm xác nhận giấy phép và quyền sử dụng nội dung bài viết">giấy phép đang được nhóm xác nhận</span>.
+- Ảnh đội, chân dung và Portal chỉ được thêm sau khi nhóm xác nhận quyền công khai.
+
+## Quy trình Pull request
+
+Tạo nhánh từ nhánh làm việc phù hợp, sửa đúng phạm vi, đồng bộ shell và chạy kiểm tra. Dùng Conventional Commits; mở PR vào main, cần **ít nhất 1 approve** và các kiểm tra xanh trước khi merge. Không push trực tiếp main. CODEOWNERS xác định reviewer mặc định; quản trị viên cần bật branch protection trên GitHub để thực thi quy tắc 1 approve (không thể bật chỉ bằng file repo).
+
+Các thông tin còn thiếu được đánh dấu `data-todo`. Hoàn thiện chúng và kiểm tra giao diện trước khi bật GitHub Pages.

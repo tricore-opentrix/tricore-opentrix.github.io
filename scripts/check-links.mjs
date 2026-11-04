@@ -16,6 +16,7 @@ for (const [page, html] of contents) {
     const href = attribute.replaceAll('&amp;', '&');
     if (/^https?:/.test(href)) { external.add(href); continue; }
     if (/^(?:mailto:|tel:|data:)/.test(href)) continue;
+    if (href.startsWith('/')) failures.push(`${page}: use a relative page link: ${href}`);
     checked++;
     const url = new URL(href, `https://preview.local/${page}`);
     let target = decodeURIComponent(url.pathname.slice(1)) || 'index.html';
@@ -30,7 +31,9 @@ for (const [page, html] of contents) {
   for (const key of ['og:title', 'og:description', 'og:site_name', 'og:image', 'twitter:title', 'twitter:description', 'twitter:image']) {
     if (!html.includes(`="${key}" content="`)) failures.push(`${page}: missing metadata ${key}`);
   }
-  if (!html.match(/<title>[^<]*opentrix[^<]*<\/title>/)) failures.push(`${page}: missing opentrix title`);
+  if (!html.match(/<title>[^<]*TRICORE[^<]*<\/title>/)) failures.push(`${page}: missing TRICORE title`);
+  if (!html.includes('<html lang="vi"')) failures.push(`${page}: missing Vietnamese language`);
+  if ((html.match(/rel="canonical"/g)||[]).length!==1) failures.push(`${page}: canonical missing or duplicated`);
   if (/TRAKZOR|OPENTRIX/.test(html)) failures.push(`${page}: old visible brand`);
   if((html.match(/class="site-header"/g)||[]).length!==1 || (html.match(/class="site-footer"/g)||[]).length!==1)failures.push(`${page}: shared shell missing or duplicated`);
   if((html.match(/src="(?:\.\.\/)*assets\/unified\.js"/g)||[]).length!==1)failures.push(`${page}: shared script missing or duplicated`);

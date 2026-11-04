@@ -1,13 +1,17 @@
 import fs from 'node:fs';
-import path from 'node:path';
+import {siteFiles} from './site-files.mjs';
 import {applyShell} from './site-shell.mjs';
-function walk(dir=''){
- for(const entry of fs.readdirSync(dir||'.',{withFileTypes:true})){
-  if(['.git','.local-preview','node_modules','handoff'].includes(entry.name))continue;
-  const file=path.posix.join(dir,entry.name);
-  if(entry.isDirectory())walk(file);
-  else if(file.endsWith('.html'))fs.writeFileSync(file,applyShell(fs.readFileSync(file,'utf8'),file));
- }
+import '../assets/config.js';
+const config=globalThis.OPENTRIX_CONFIG;
+const pages=siteFiles().filter(file=>file.endsWith('.html'));
+const publicPages=[];
+for(const file of pages){
+  const html=applyShell(fs.readFileSync(file,'utf8'),file);
+  fs.writeFileSync(file,html);
+  if(file!=='404.html'&&!/<meta\b[^>]*http-equiv="refresh"/i.test(html))publicPages.push(file);
 }
-walk();
-console.log('Shared static header, footer, metadata and theme synchronized.');
+const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;');
+const urls=publicPages.map(file=>`  <url><loc>${escape(config.origin+'/'+file.replace(/index\.html$/,''))}</loc></url>`).join('\n');
+fs.writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+fs.writeFileSync('robots.txt',`User-agent: *\nAllow: /\nDisallow: /export/\nSitemap: ${config.origin}/sitemap.xml\n`);
+console.log(`Shared static header, footer, metadata and theme synchronized. Sitemap: ${publicPages.length} pages.`);

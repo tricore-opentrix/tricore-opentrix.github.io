@@ -53,7 +53,13 @@ def convert(node, page):
         href = node.attrs.get('href','')
         if not href: return text
         if not re.match(r'https?:|mailto:|#', href):
-            href = urljoin('https://tricore-opentrix.github.io/' + page, href)
+            absolute = urljoin('https://tricore-opentrix.github.io/' + page, href)
+            path = absolute.split('https://tricore-opentrix.github.io/',1)[-1]
+            fragment = ('#' + path.split('#',1)[1]) if '#' in path else ''
+            path = path.split('#',1)[0]
+            if path.startswith('docs/') and path.endswith(('.html','/')):
+                href = ('api.md' if path.startswith('docs/api/') else Path(path).stem+'.md' if path.endswith('.html') else 'index.md') + fragment
+            else: href = absolute
         return '[' + text.strip() + '](' + href + ')'
     if tag == 'img': return '![' + node.attrs.get('alt','') + '](' + node.attrs.get('src','') + ')'
     if tag in {'ul','ol'}:
@@ -70,7 +76,9 @@ def convert(node, page):
         lines=['| '+' | '.join(r)+' |' for r in rows]
         lines.insert(1,'| '+' | '.join(['---']*width)+' |')
         return '\n\n'+'\n'.join(lines)+'\n\n'
-    if tag in {'p','section','div','aside','blockquote','details'}: return '\n\n' + text.strip() + '\n\n'
+    if tag == 'section' and 'id' in node.attrs:
+        return '\n\n<a id="'+node.attrs['id']+'"></a>\n\n' + text.strip() + '\n\n'
+    if tag in {'p','div','aside','blockquote','details'}: return '\n\n' + text.strip() + '\n\n'
     return text
 
 def export():
