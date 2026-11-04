@@ -1,1 +1,4 @@
 .local-preview/
+
+# Draft migration exports and review artifacts are not published on Pages.
+export/

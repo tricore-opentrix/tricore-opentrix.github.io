@@ -14,7 +14,7 @@ http.createServer(async (req, res) => {
     else if (pathname.startsWith('/trakzor-site/')) pathname = pathname.slice('/trakzor-site'.length);
     const file = path.resolve(root, '.' + pathname);
     const relative = path.relative(root, file);
-    if (relative.startsWith('..') || path.isAbsolute(relative) || relative.split(path.sep).some(part => part.startsWith('.'))) {
+    if (relative.startsWith('..') || path.isAbsolute(relative) || relative.split(path.sep).some(part => part.startsWith('.')) || relative.split(path.sep)[0] === 'export') {
       res.writeHead(403).end('Forbidden'); return;
     }
     const directory = (await stat(file)).isDirectory();
