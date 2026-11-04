@@ -1,10 +1,10 @@
 # opentrix — website giới thiệu DX-OS Open-Core
 
-Website tĩnh của TriCore, tích hợp Landing Hero 2 và Documentation R10. opentrix là thương hiệu website; DX-OS Open-Core là nền tảng và tên repository mã nguồn.
+Website tĩnh của TRICORE, tích hợp Landing Hero 2 và Documentation R10. opentrix là thương hiệu website; DX-OS Open-Core là nền tảng và tên repository mã nguồn.
 
 Các đường dẫn chính trên GitHub Pages: `/trakzor-site/`, `/trakzor-site/docs/`, `/trakzor-site/blog/`, `/trakzor-site/docs/api/`. Tất cả URL `.html` cũ vẫn được giữ. Blog giữ tìm kiếm, bộ lọc và 8 bài viết hiện có.
 
-API Reference giới hạn ở 9 route Helpdesk Backend đã đọc từ controller, service, security và error handlers tại `0e789cffa11447f3acef25d0e582bf25ed46c7b4`. Manifest nguồn nằm ở `docs/api/source-manifest.json`; đây không phải OpenAPI hoặc bằng chứng chạy API/LIVE. Giữ LIVE BLOCKED.
+API Reference giới hạn ở 9 route Helpdesk Backend đã đọc từ controller, service, security và error handlers tại `0e789cffa11447f3acef25d0e582bf25ed46c7b4`. Manifest nguồn nằm ở `docs/api/source-manifest.json`; đây không phải OpenAPI hoặc bằng chứng chạy API/LIVE. Xem trang dự án để theo dõi phiên bản.
 
 ## Xem trước local
 

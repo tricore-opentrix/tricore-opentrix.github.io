@@ -1,3 +1,5 @@
+import '../assets/config.js';
+const config=globalThis.OPENTRIX_CONFIG;
 import path from 'node:path';
 
 const external='target="_blank" rel="noopener noreferrer"';
@@ -52,5 +54,8 @@ export function applyShell(html,file){
   html=html.replace('v0.1.0 · nguồn đang đối chiếu','v0.1.0 · mốc 04/11/2026').replace('README và CHANGELOG chưa thống nhất cách gọi; chưa phải xác nhận production.','DX-OS Open-Core · v0.1.0 · Pre-release.');
   if(!html.includes('class="docs-toolbar"'))html=html.replace('<div class="docs-layout">','<div class="docs-toolbar"><button aria-controls="docs-sidebar" aria-expanded="false" class="mobile-sidebar-toggle" type="button">Mục lục tài liệu</button></div><div class="docs-layout">');
  }
+ const value=key=>key.split('.').reduce((v,k)=>v?.[k],config);
+ html=html.replace(/(<a\b[^>]*data-config-url="([^"]+)"[^>]*href=")[^"]*(")/g,(_,start,key,end)=>start+(value(key)||'#')+end);
+ html=html.replace(/(<[^>]+data-config-text="([^"]+)"[^>]*>)[^<]*(<\/[^>]+>)/g,(_,start,key,end)=>start+String(value(key)||'Thông tin đang được cập nhật.')+end);
  return html;
 }
