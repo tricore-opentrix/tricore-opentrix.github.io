@@ -1,0 +1,44 @@
+@font-face{font-family:'Vietnam fallback';src:url('vietnam-latin.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Vietnam fallback';src:url('vietnam-vietnamese.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+/* R10 design tokens with the repository’s existing OFL-licensed local font. */
+:root{
+  --paper:#F7F5EF; --ink:#1A1A17; --muted:#5B5A53; --accent:#B43A1E; --on-accent:#FFFFFF;
+  --release-live:#1F6B45; --release-pending:#8A5A00; --release-blocked:#9F1D2E;
+  --rule:#8C887C; --hair:#D9D5C9;
+  --font:"Vietnam fallback","Segoe UI",system-ui,sans-serif;
+  --mono:Consolas,ui-monospace,monospace;
+  --fs-14:14px; --fs-15:15px; --fs-17:17px; --fs-21:21px; --fs-27:27px; --fs-33:33px; --fs-42:42px; --fs-52:52px; --fs-64:64px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px; --s12:48px; --s16:64px; --s24:96px;
+  --trace:4px; --chip:1.5px; --radius-control:4px;
+  --max:1200px; --gutter:24px; --page-pad:40px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121311; --ink:#ECE9E0; --muted:#A9A79D; --accent:#F08A6B; --on-accent:#121311;
+    --release-live:#6FCF97; --release-pending:#E7B44C; --release-blocked:#F28B97;
+    --rule:#77756C; --hair:#34332E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121311; --ink:#ECE9E0; --muted:#A9A79D; --accent:#F08A6B; --on-accent:#121311;
+  --release-live:#6FCF97; --release-pending:#E7B44C; --release-blocked:#F28B97;
+  --rule:#77756C; --hair:#34332E; color-scheme:dark;
+}
+/* Mảng mực: đảo màu so với theme đang dùng */
+.ink-field{
+  --paper:#1A1A17; --ink:#ECE9E0; --muted:#B9B6AC; --accent:#F08A6B; --on-accent:#121311;
+  --release-live:#6FCF97; --release-pending:#E7B44C; --release-blocked:#F28B97; --rule:#77756C; --hair:#3A3933;
+  background:var(--paper); color:var(--ink);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .ink-field{
+    --paper:#ECE9E0; --ink:#1A1A17; --muted:#4F4E48; --accent:#B43A1E; --on-accent:#FFFFFF;
+    --release-live:#1F6B45; --release-pending:#7A5000; --release-blocked:#9F1D2E; --rule:#8C887C; --hair:#CFCABD;
+  }
+}
+:root[data-theme="dark"] .ink-field{
+  --paper:#ECE9E0; --ink:#1A1A17; --muted:#4F4E48; --accent:#B43A1E; --on-accent:#FFFFFF;
+  --release-live:#1F6B45; --release-pending:#7A5000; --release-blocked:#9F1D2E; --rule:#8C887C; --hair:#CFCABD;
+}
+@media (max-width:760px){ :root{ --page-pad:20px; --gutter:16px; } }

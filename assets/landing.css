@@ -1,0 +1,189 @@
+/* TRAKZOR "Vết" — component styles dùng chung cho hero-1 và hero-2 */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--fs-17)/1.7 var(--font);font-kerning:normal}
+h1,h2,h3,p,ol,ul{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.container{max-width:calc(var(--max) + 2*var(--page-pad));margin:0 auto;padding:0 var(--page-pad)}
+.skip{position:absolute;left:var(--s4);top:-60px;background:var(--ink);color:var(--paper);padding:var(--s2) var(--s4);z-index:10}
+.skip:focus{top:var(--s2)}
+
+/* Header */
+.header{border-bottom:1px solid var(--hair)}
+.header .container{display:flex;align-items:center;gap:var(--s6);min-height:64px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.06em;text-decoration:none}
+.brand::before{content:"";width:var(--trace);height:22px;background:var(--accent)}
+.nav{display:flex;gap:var(--s6);margin-left:auto;font-size:var(--fs-15)}
+.nav a{text-decoration:none;padding:var(--s2) 0;border-bottom:2px solid transparent}
+.nav a[aria-current="page"]{border-bottom-color:var(--accent)}
+.theme-toggle{min-width:44px;min-height:44px;border:var(--chip) solid var(--rule);background:transparent;color:var(--ink);border-radius:var(--radius-control);font:600 var(--fs-14)/1 var(--font);padding:0 var(--s3);cursor:pointer}
+.mobile-nav{display:none;margin-left:auto}
+.mobile-nav summary{min-height:44px;display:flex;align-items:center;padding:0 var(--s3);border:var(--chip) solid var(--rule);border-radius:var(--radius-control);font-weight:600;font-size:var(--fs-15);cursor:pointer;list-style:none}
+.mobile-nav summary::-webkit-details-marker{display:none}
+.mobile-nav[open] .mobile-menu{display:grid}
+.mobile-menu{display:none;position:absolute;left:0;right:0;top:64px;background:var(--paper);border-bottom:1px solid var(--hair);padding:var(--s4) var(--page-pad);gap:var(--s2);z-index:5}
+.mobile-menu a{min-height:44px;display:flex;align-items:center;text-decoration:none}
+@media (max-width:900px){.nav{display:none}.mobile-nav{display:block}.header .container{position:relative}}
+
+/* Typography */
+.kicker{font-size:var(--fs-15);font-weight:600;color:var(--muted)}
+.h1{font-size:var(--fs-64);line-height:1.15;letter-spacing:-.02em;font-weight:700;max-width:13em}
+.deck{font-size:var(--fs-21);line-height:1.6;color:var(--muted);max-width:34em}
+.h2{font-size:var(--fs-33);line-height:1.25;letter-spacing:-.01em;font-weight:700}
+.h3{font-size:var(--fs-21);line-height:1.35;font-weight:700}
+@media (max-width:760px){.h1{font-size:36px}.deck{font-size:var(--fs-17)}.h2{font-size:var(--fs-27)}.h3{font-size:19px}}
+
+/* Buttons */
+.actions{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--s6);border-radius:var(--radius-control);font-weight:600;font-size:var(--fs-17);text-decoration:none;border:var(--chip) solid var(--ink)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{color:var(--on-accent);filter:brightness(1.08)}
+.btn-secondary{background:transparent;color:var(--ink)}
+@media (max-width:760px){.actions .btn{flex:1 1 100%}}
+
+/* Status: badge + release strip */
+.badges{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center}
+.badge{display:inline-flex;align-items:center;gap:var(--s2);font-size:var(--fs-15);font-weight:600;line-height:1.3;padding:3px var(--s2);border:var(--chip) solid var(--ink)}
+.badge-release{border-color:currentColor}
+.badge-release::before{content:"";width:10px;height:10px;border:2px solid currentColor;flex:none}
+.badge-release[data-release-badge="live-blocked"]{color:var(--release-blocked)}
+.badge-release[data-release-badge="live-blocked"]::before{background:linear-gradient(135deg,transparent 42%,currentColor 42% 58%,transparent 58%)}
+.badge-release[data-release-badge="none"]{color:var(--muted)}
+.badge-release[data-release-badge="none"]::before{border-style:dashed}
+.badge-release[data-release-badge="pr-draft"]{color:var(--release-pending)}
+.badge-release[data-release-badge="live"]{color:var(--release-live)}
+.badge-release[data-release-badge="live"]::before{background:currentColor}
+.status-meta{font-size:var(--fs-15);color:var(--muted);line-height:1.5}
+.recheck{font-size:var(--fs-15);font-weight:600;letter-spacing:.02em;border:1px dashed var(--rule);padding:1px 6px;white-space:nowrap}
+.release-strip{border:var(--chip) solid var(--ink);border-left:var(--trace) solid var(--accent);padding:var(--s3) var(--s4);display:grid;gap:var(--s2);max-width:44em}
+.release-strip .product{font-weight:700;font-size:var(--fs-17)}
+
+/* Trace: lề sổ chạy dọc các section */
+.section{padding:var(--s24) 0}
+.trace{border-left:1px solid var(--rule);padding-left:var(--s8)}
+.trace-head{position:relative;display:grid;gap:var(--s2);margin-bottom:var(--s8)}
+.trace-head::before{content:"";position:absolute;left:calc(-1*var(--s8) - 2px);top:.35em;width:var(--trace);height:1.1em;background:var(--accent)}
+.label{font-size:var(--fs-15);font-weight:600;color:var(--muted)}
+@media (max-width:760px){.section{padding:var(--s16) 0}.trace{padding-left:var(--s4)}.trace-head::before{left:calc(-1*var(--s4) - 2px)}}
+
+/* Problem */
+.topics{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);margin:var(--s6) 0}
+.topics li{border-top:1px solid var(--hair);padding-top:var(--s3)}
+.topics b{display:block;font-size:var(--fs-17)}
+.topics p{color:var(--muted);font-size:var(--fs-15)}
+.pending{font-size:var(--fs-15);color:var(--muted);border:1px dashed var(--rule);padding:var(--s2) var(--s3);display:inline-block}
+@media (max-width:760px){.topics{grid-template-columns:1fr;gap:var(--s4)}}
+
+/* Rows (solutions, blog, team) */
+.rows>li{display:grid;grid-template-columns:minmax(10em,2fr) 5fr 4fr;gap:var(--s6);padding:var(--s6) 0;border-top:1px solid var(--hair);align-items:start}
+.rows>li:last-child{border-bottom:1px solid var(--hair)}
+.rows .lede{color:var(--muted);font-size:var(--fs-15)}
+.rows p{font-size:var(--fs-17)}
+.row-status{display:grid;gap:var(--s2)}
+@media (max-width:900px){.rows>li{grid-template-columns:1fr;gap:var(--s3)}}
+.blog-rows>li{grid-template-columns:7em 1fr}
+.blog-rows .date{font-family:var(--mono);font-size:var(--fs-14);color:var(--muted);padding-top:4px}
+.blog-rows .meta{font-size:var(--fs-15);color:var(--muted)}
+@media (max-width:900px){.blog-rows>li{grid-template-columns:1fr}}
+.featured{display:grid;gap:var(--s3);padding:var(--s6) 0}
+.featured .h3{font-size:var(--fs-27)}
+@media (max-width:760px){.featured .h3{font-size:var(--fs-21)}}
+.team-rows>li{grid-template-columns:minmax(10em,2fr) 3fr 5fr}
+@media (max-width:900px){.team-rows>li{grid-template-columns:1fr}}
+
+/* Evidence ledger (ink field) */
+.evidence{padding:var(--s16) 0}
+.claims{display:grid;gap:0}
+.claim{padding:var(--s4) 0;border-top:1px solid var(--hair);display:grid;gap:var(--s2)}
+.claim-text{font-size:var(--fs-17)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-15);font-weight:600;border:var(--chip) solid var(--ink);padding:2px var(--s2)}
+.claim-meta{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s3);align-items:center;font-size:var(--fs-15);color:var(--muted)}
+.limits{margin-top:var(--s6);border:var(--chip) solid var(--release-blocked);padding:var(--s4)}
+.limits h3{font-size:var(--fs-17);color:var(--release-blocked);margin-bottom:var(--s2)}
+.limits li{font-size:var(--fs-15);padding:2px 0}
+.limits li::before{content:"— "}
+
+/* Hero shared */
+.hero{padding:var(--s12) 0 var(--s16)}
+@media (max-width:760px){.hero{padding:var(--s6) 0 var(--s12)}}
+
+/* Hero 1 — problem-first */
+.hero1 .grid{display:grid;grid-template-columns:7fr 5fr;grid-template-rows:auto 1fr;grid-template-areas:"copy ledger" "cta ledger";gap:var(--s6) var(--s12);align-items:start}
+.hero1 .copy{grid-area:copy;display:grid;gap:var(--s6)}
+.hero1 .ledger{grid-area:ledger;padding:var(--s6);display:grid;gap:var(--s4)}
+.hero1 .cta{grid-area:cta;align-self:start}
+.hero1 .ledger-head{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:var(--s3)}
+.hero1 .ledger-head b{font-size:var(--fs-15);letter-spacing:.06em}
+.hero1 .ledger .release-strip{border-color:var(--hair);border-left-color:var(--accent)}
+@media (max-width:900px){.hero1 .grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"copy" "ledger" "cta";gap:var(--s4)}.hero1 .ledger{padding:var(--s4)}.hero1 .copy{gap:var(--s4)}}
+
+/* Hero 2 — journey-first */
+.hero2 .copy{display:grid;gap:var(--s6);margin-bottom:var(--s12)}
+@media (max-width:760px){.hero2 .copy{gap:var(--s4);margin-bottom:var(--s8)}}
+.process-head{display:grid;gap:var(--s1);margin-bottom:var(--s6)}
+.process-head h2{font-size:var(--fs-17);font-weight:700;letter-spacing:.02em}
+.process-head p{font-size:var(--fs-15);color:var(--muted)}
+.track{display:grid;grid-template-columns:repeat(5,1fr);counter-reset:st;position:relative}
+.track>li{position:relative;padding-top:var(--s8);padding-right:var(--s4)}
+.track>li::before{content:"";position:absolute;top:9px;left:0;right:0;height:var(--trace);background:var(--accent)}
+.track>li:last-child::before{right:auto;width:22px}
+.track>li::after{content:"";position:absolute;top:2px;left:0;width:18px;height:18px;border-radius:999px;background:var(--paper);border:3px solid var(--accent)}
+.track>li:last-child::after{background:var(--accent)}
+.st-vi{display:block;font-weight:700;font-size:var(--fs-17);line-height:1.35}
+.st-code{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.02em}
+.st-role{display:block;font-size:var(--fs-15);color:var(--muted);margin-top:var(--s1)}
+.branch{margin-top:var(--s3);font-size:var(--fs-15);border-left:2px dashed var(--accent);padding-left:var(--s2)}
+.branch b{font-weight:600}
+@media (max-width:760px){
+  .track{grid-template-columns:1fr}
+  .track>li{padding:0 0 var(--s6) var(--s8)}
+  .track>li::before{top:6px;bottom:0;left:7px;right:auto;width:var(--trace);height:auto}
+  .track>li:last-child::before{display:none}
+  .track>li::after{top:4px}
+}
+
+/* Footer */
+.footer{border-top:1px solid var(--hair);padding:var(--s12) 0;font-size:var(--fs-15);color:var(--muted)}
+.footer .container{display:grid;gap:var(--s3)}
+.proto-note{border:1px dashed var(--rule);padding:var(--s3) var(--s4)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Round 7 — link trạng thái khác + tinh chỉnh màn hình hẹp (áp dụng chung cho mọi Hero) */
+.more-status{font-size:var(--fs-15);line-height:1.5}
+.more-status a{display:inline-block;padding:var(--s2) 0}
+@media (max-width:380px){
+  :root{--page-pad:16px}
+  .header .container{min-height:56px;gap:var(--s3)}
+  .mobile-menu{top:56px}
+  .hero{padding-top:var(--s4)}
+  .hero .copy{gap:var(--s3)!important}
+  .h1{font-size:30px;line-height:1.15}
+  .kicker{font-size:var(--fs-14)}
+  .deck{line-height:1.55}
+  .release-strip{padding:var(--s2) var(--s3);gap:6px}
+  .badges{gap:6px}
+  .more-status a{padding:var(--s1) 0}
+  .hero1 .ledger{padding:var(--s3)}
+  .hero1 .grid{gap:var(--s3)}
+}
+@media (max-width:340px){.h1{font-size:27px}}
+
+/* Round 8 — narrow-header and duplicate-row-label fixes.
+   Applied equally to Hero 1b/2; keep controls >= 44px and status fonts >= 15px. */
+@media (max-width:340px){
+  .header .container{gap:6px}
+  .brand{font-size:15px;letter-spacing:.03em;gap:7px;white-space:nowrap}
+  .brand::before{height:20px}
+  .mobile-nav summary{padding:0 8px;font-size:14px;white-space:nowrap}
+  .theme-toggle{padding:0 8px;font-size:13px;white-space:nowrap}
+}
+/* Solution-row heading already names the product. Avoid showing it twice.
+   Core's more-specific “DX-OS Open-Core · Workflow” remains visible. */
+.rows [data-status-id="helpdesk"] > .product,
+.rows [data-status-id="facility"] > .product{display:none}

@@ -1,21 +1,22 @@
 ﻿(() => {
 'use strict';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const cfg=window.TRAKZOR_CONFIG||{};
+const cfg=window.OPENTRIX_CONFIG||{};
 const safe=(value,hosts)=>{try{const u=new URL(value);return u.protocol==='https:'&&(!hosts||hosts.includes(u.hostname))?u.href:null;}catch{return null;}};
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;};
 let toastTimer;
 const toast=msg=>{const t=$('.toast');if(!t)return;t.textContent=msg;t.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('visible'),3000);};
 const themeButton=$('.theme-toggle');
 function themeUI(){const dark=document.documentElement.dataset.theme==='dark';themeButton?.setAttribute('aria-label',dark?'Chuyển sang giao diện sáng':'Chuyển sang giao diện tối');if(themeButton)themeButton.innerHTML=dark?'<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>':'<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/></svg>';}
-themeUI();themeButton?.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('trakzor-theme',next);}catch{}themeUI();});
+themeUI();themeButton?.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('opentrix-theme',next);}catch{}themeUI();});
 const menu=$('.menu-toggle'),nav=$('.nav');
 function closeMenu(){nav?.classList.remove('open');menu?.setAttribute('aria-expanded','false');menu?.setAttribute('aria-label','Mở menu');}
-menu?.addEventListener('click',()=>{const open=!nav.classList.contains('open');nav.classList.toggle('open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Đóng menu':'Mở menu');});
+menu?.addEventListener('click',()=>{const open=!nav.classList.contains('open');nav.classList.toggle('open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Đóng menu':'Mở menu');if(open)nav.querySelector('a')?.focus();});
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&nav?.classList.contains('open')){closeMenu();menu.focus();}});
 document.addEventListener('click',ev=>{if(!ev.target.closest('.header'))closeMenu();});
 nav?.addEventListener('click',ev=>{if(ev.target.closest('a'))closeMenu();});
-matchMedia('(min-width:761px)').addEventListener('change',closeMenu);
+matchMedia('(min-width:1001px)').addEventListener('change',closeMenu);
+document.addEventListener('focusin',ev=>{if(nav?.classList.contains('open')&&!ev.target.closest('.header'))closeMenu();});
 const surveyURL=safe(cfg.surveyUrl,['docs.google.com']);if(surveyURL)$$('[data-survey-link]').forEach(a=>a.href=surveyURL);
 for(const platform of ['facebook','youtube','tiktok']){
 const u=safe(cfg.social?.[platform]);

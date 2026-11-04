@@ -1,5 +1,5 @@
-﻿window.TRAKZOR_CONFIG = {
-  name: 'TRAKZOR', team: 'TriCore', slogan: 'Build Strong. Create Beyond.',
+﻿window.OPENTRIX_CONFIG = {
+  name: 'opentrix', team: 'TriCore', slogan: 'Build Strong. Create Beyond.',
   repository: 'lexuanbao258-collab/dxos-open-core',
   surveyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdTy5JAp0-JV6A687tl9i7EAkGzDLkVdQ8GaiK_GNLdWjw9hQ/viewform?usp=header',
   social: { facebook: '', youtube: '', tiktok: '', email: '' },
