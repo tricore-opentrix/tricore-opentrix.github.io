@@ -4,7 +4,7 @@ Website giới thiệu đội sinh viên **TRICORE**: thành viên, dự án, bl
 
 - Website: https://tricore-opentrix.github.io/
 - GitHub đội: https://github.com/tricore-opentrix
-- Mã nguồn sản phẩm: https://github.com/lexuanbao258-collab/dxos-open-core
+- Mã nguồn sản phẩm: https://github.com/tricore-opentrix/opentrix
 
 ## Xem trước
 

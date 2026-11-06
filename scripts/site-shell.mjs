@@ -5,12 +5,12 @@ const decode=value=>value.replaceAll('&amp;','&').replaceAll('&quot;','"').repla
 const value=key=>key.split('.').reduce((v,k)=>v?.[k],config);
 export function linksFor(file){
   const prefix='../'.repeat(file.split('/').length-1);
-  return {prefix,home:prefix+'index.html',project:prefix+'projects/dx-os.html',blog:prefix+'blog/',community:prefix+'index.html#cong-dong',survey:prefix+'survey.html'};
+  return {prefix,home:prefix+'index.html',project:prefix+'projects/dx-os.html',docs:prefix+'docs/',blog:prefix+'blog/',community:prefix+'index.html#cong-dong',survey:prefix+'survey.html'};
 }
 export function header(file){
   const p=linksFor(file);
-  const active=file==='index.html'?'home':file.startsWith('projects/')?'project':/^blog(?:\/|\.html)/.test(file)||file.startsWith('articles/')?'blog':'';
-  const items=[['home','Giới thiệu'],['project','Dự án'],['blog','Blog'],['community','Cộng đồng']];
+  const active=file==='index.html'?'home':file.startsWith('projects/')?'project':file.startsWith('docs/')?'docs':/^blog(?:\/|\.html)/.test(file)||file.startsWith('articles/')?'blog':'';
+  const items=[['home','Giới thiệu'],['project','Dự án'],['docs','Tài liệu'],['blog','Blog'],['community','Cộng đồng']];
   const nav=()=>items.map(([key,label])=>`<a href="${p[key]}"${active===key?' aria-current="page"':''}>${label}</a>`).join('');
   return `<!-- site-header:start -->
 <header class="site-header"><div class="site-container site-header-inner">
@@ -24,7 +24,7 @@ export function footer(file){
   const p=linksFor(file);
   return `<!-- site-footer:start --><footer class="site-footer"><div class="site-container"><div class="site-footer-grid">
 <div><a class="site-brand" href="${p.home}"><span class="site-mark" aria-hidden="true"></span>opentrix</a><p>Đội sinh viên ${escape(config.team)}.<br>Cùng xây dựng và chia sẻ phần mềm nguồn mở.</p></div>
-<nav aria-label="Đội và dự án"><h2>Khám phá</h2><a href="${p.prefix}about.html">Về TRICORE</a><a href="${p.project}">Dự án DX-OS Open-Core</a><a href="${p.blog}">Blog</a><a href="${p.prefix}technology.html">Công nghệ chúng tôi dùng</a></nav>
+<nav aria-label="Đội và dự án"><h2>Khám phá</h2><a href="${p.prefix}about.html">Về TRICORE</a><a href="${p.project}">Dự án DX-OS Open-Core</a><a href="${p.docs}">Tài liệu</a><a href="${p.blog}">Blog</a><a href="${p.prefix}technology.html">Công nghệ chúng tôi dùng</a></nav>
 <nav aria-label="Cộng đồng"><h2>Kết nối</h2><a data-config-url="links.teamGithub" href="${escape(config.links.teamGithub)}">GitHub đội ↗</a><a href="${p.community}">Cộng đồng &amp; liên hệ</a><a href="${p.survey}">Khảo sát</a><a data-config-url="links.source" href="${escape(config.links.source)}">Mã nguồn DX-OS Open-Core ↗</a></nav>
 </div><div class="site-footer-bottom"><span>© 2026 opentrix · ${escape(config.team)}</span><a href="${p.project}#lo-trinh">Lộ trình dự án</a><a href="#top">Lên đầu trang</a></div></div></footer><!-- site-footer:end -->`;
 }

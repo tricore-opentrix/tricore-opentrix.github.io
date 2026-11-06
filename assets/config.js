@@ -4,7 +4,7 @@ globalThis.OPENTRIX_CONFIG = {
   "team": "TRICORE",
   "school": "",
   "advisor": "",
-  "repository": "lexuanbao258-collab/dxos-open-core",
+  "repository": "tricore-opentrix/opentrix",
   "origin": "https://tricore-opentrix.github.io",
   "surveyUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdTy5JAp0-JV6A687tl9i7EAkGzDLkVdQ8GaiK_GNLdWjw9hQ/viewform?usp=header",
   "social": {
@@ -35,19 +35,19 @@ globalThis.OPENTRIX_CONFIG = {
   ],
   "links": {
     "teamGithub": "https://github.com/tricore-opentrix",
-    "source": "https://github.com/lexuanbao258-collab/dxos-open-core",
-    "release": "https://github.com/lexuanbao258-collab/dxos-open-core/releases/tag/v0.1.0",
-    "license": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/main/LICENSE",
-    "changelog": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/main/CHANGELOG.md",
-    "issues": "https://github.com/lexuanbao258-collab/dxos-open-core/issues",
-    "contributing": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/main/CONTRIBUTING.md",
+    "source": "https://github.com/tricore-opentrix/opentrix",
+    "release": "https://github.com/tricore-opentrix/opentrix/releases/tag/v0.1.0",
+    "license": "https://github.com/tricore-opentrix/opentrix/blob/main/LICENSE",
+    "changelog": "https://github.com/tricore-opentrix/opentrix/blob/main/CHANGELOG.md",
+    "issues": "https://github.com/tricore-opentrix/opentrix/issues",
+    "contributing": "https://github.com/tricore-opentrix/opentrix/blob/main/CONTRIBUTING.md",
     "acceptance": "https://github.com/lexuanbao258-collab/dxos-open-core/pull/109#issuecomment-6612313785",
     "portalMock": "https://github.com/lexuanbao258-collab/dxos-open-core/pull/109#issuecomment-6613902227",
-    "keycloakIssue": "https://github.com/lexuanbao258-collab/dxos-open-core/issues/118",
+    "keycloakIssue": "https://github.com/tricore-opentrix/opentrix/issues/118",
     "spdxIssue": "https://github.com/lexuanbao258-collab/dxos-open-core/issues/38",
-    "docs": "https://github.com/lexuanbao258-collab/dxos-open-core/tree/v0.1.0/docs",
-    "readmeTag": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/v0.1.0/README.md",
-    "changelogTag": "https://github.com/lexuanbao258-collab/dxos-open-core/blob/v0.1.0/CHANGELOG.md"
+    "docs": "https://github.com/tricore-opentrix/opentrix/tree/v0.1.0/docs",
+    "readmeTag": "https://github.com/tricore-opentrix/opentrix/blob/v0.1.0/README.md",
+    "changelogTag": "https://github.com/tricore-opentrix/opentrix/blob/v0.1.0/CHANGELOG.md"
   },
   "release": {
     "version": "v0.1.0",
@@ -67,6 +67,7 @@ globalThis.OPENTRIX_CONFIG = {
       "description": "Tìm hiểu ba thành viên, vai trò và cách TRICORE cùng làm phần mềm nguồn mở."
     },
     "blog.html": {
+      "canonical": "blog/",
       "title": "Blog",
       "description": "Kho bài viết của TRICORE về thiết kế, phát triển phần mềm và cộng tác nguồn mở."
     },

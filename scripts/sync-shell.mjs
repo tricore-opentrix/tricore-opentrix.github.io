@@ -11,7 +11,8 @@ for(const file of pages){
   if(file!=='404.html'&&!/<meta\b[^>]*http-equiv="refresh"/i.test(html))publicPages.push(file);
 }
 const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;');
-const urls=publicPages.map(file=>`  <url><loc>${escape(config.origin+'/'+file.replace(/index\.html$/,''))}</loc></url>`).join('\n');
+const canonicalURLs=[...new Set(publicPages.map(file=>config.origin+'/'+(config.pages[file]?.canonical||file.replace(/index\.html$/,''))))];
+const urls=canonicalURLs.map(url=>`  <url><loc>${escape(url)}</loc></url>`).join('\n');
 fs.writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 fs.writeFileSync('robots.txt',`User-agent: *\nAllow: /\nDisallow: /export/\nSitemap: ${config.origin}/sitemap.xml\n`);
 console.log(`Shared static header, footer, metadata and theme synchronized. Sitemap: ${publicPages.length} pages.`);
