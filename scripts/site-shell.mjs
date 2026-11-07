@@ -64,7 +64,6 @@ export function applyShell(html,file){
       const link=Object.keys(config.links).find(k=>config.links[k]===href);
       const reference=Object.keys(config.references||{}).find(k=>config.references[k]===href);
       key=link?'links.'+link:reference?'references.'+reference:null;
-      if(href===config.surveyUrl)key='surveyUrl';
       if(key)tag=tag.replace('<a ',`<a data-config-url="${key}" `);
     }
     if(key){const url=value(key);if(!url)throw new Error(`Missing config URL: ${key}`);tag=tag.replace(/\bhref="[^"]*"/,`href="${escape(url)}"`);}

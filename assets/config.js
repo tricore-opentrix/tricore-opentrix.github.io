@@ -6,7 +6,6 @@ globalThis.OPENTRIX_CONFIG = {
   "advisor": "",
   "repository": "tricore-opentrix/opentrix",
   "origin": "https://tricore-opentrix.github.io",
-  "surveyUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdTy5JAp0-JV6A687tl9i7EAkGzDLkVdQ8GaiK_GNLdWjw9hQ/viewform?usp=header",
   "social": {
     "facebook": "",
     "youtube": "",
@@ -87,7 +86,7 @@ globalThis.OPENTRIX_CONFIG = {
     },
     "survey.html": {
       "title": "Khảo sát",
-      "description": "Góp ý cho TRICORE về cách tiếp nhận, phân công và theo dõi yêu cầu nội bộ qua biểu mẫu khảo sát."
+      "description": "Việc thu thập phản hồi qua khảo sát đang tạm dừng. Trang này chỉ giới thiệu mục đích nghiên cứu."
     },
     "technology.html": {
       "title": "Công nghệ chúng tôi dùng",

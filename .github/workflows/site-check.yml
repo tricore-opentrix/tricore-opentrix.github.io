@@ -21,6 +21,8 @@ jobs:
           package-manager-cache: false
       - name: Check publication HOLD
         run: node scripts/check-publication-hold.mjs
+      - name: Check survey publication hold
+        run: node scripts/check-survey-publication.mjs
       - name: Check links and metadata
         run: node scripts/check-links.mjs
       - name: Check JavaScript syntax

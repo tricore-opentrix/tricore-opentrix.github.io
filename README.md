@@ -1,5 +1,13 @@
 # opentrix · TRICORE
 
+## Tạm hoãn thu thập phản hồi khảo sát
+
+Việc thu thập phản hồi qua khảo sát đang tạm dừng. Trang `/survey.html` chỉ giới thiệu mục đích nghiên cứu về cách tiếp nhận, phân công và theo dõi yêu cầu nội bộ; website không phải ứng dụng IT Helpdesk vận hành. Giữ liên kết nội bộ đến trang thông tin, không thêm CTA, iframe, form action hoặc chuyển hướng đến biểu mẫu ngoài chưa được duyệt.
+
+Chỉ mở lại thu thập sau khi được phê duyệt: đơn vị/người vận hành khảo sát; thiết lập thực tế của biểu mẫu (đăng nhập, thu email, trường bắt buộc, tải file); mục đích và đối tượng; các loại dữ liệu; trách nhiệm truy cập câu trả lời; thời hạn lưu và phương án xóa; kênh liên hệ công khai; cùng nội dung công bố cách xử lý dữ liệu. Các điều kiện này chưa được xác nhận là đã đáp ứng. Không suy diễn hoặc tự bổ sung chính sách thay cho phê duyệt.
+
+Chạy `node scripts/check-survey-publication.mjs` trước khi đề xuất merge. Guard chỉ đọc, không dùng mạng, chặn biểu mẫu chưa duyệt và binding khảo sát ngoài; không chặn liên kết nội bộ `survey.html`. Việc mở lại phải qua review riêng, cập nhật guard và nội dung công khai theo phê duyệt. Không công bố số liệu hoặc kết quả nghiên cứu chưa được xác minh.
+
 Website giới thiệu đội sinh viên **TRICORE**: thành viên, dự án, blog, cộng đồng và liên hệ. DX-OS Open-Core là dự án tiêu biểu dự thi OLP Phần mềm nguồn mở 2026; tài liệu kỹ thuật chính thức thuộc repo sản phẩm.
 
 - Website: https://tricore-opentrix.github.io/
