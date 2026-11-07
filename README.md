@@ -53,3 +53,11 @@ Giữ `docs/` hoạt động đến khi nhóm merge PR chuyển tài liệu bên
 Tạo nhánh từ nhánh làm việc phù hợp, sửa đúng phạm vi, đồng bộ shell và chạy kiểm tra. Dùng Conventional Commits; mở PR vào main, cần **ít nhất 1 approve** và các kiểm tra xanh trước khi merge. Không push trực tiếp main. CODEOWNERS xác định reviewer mặc định; quản trị viên cần bật branch protection trên GitHub để thực thi quy tắc 1 approve (không thể bật chỉ bằng file repo).
 
 Các thông tin còn thiếu được đánh dấu `data-todo`. Hoàn thiện chúng và kiểm tra giao diện trước khi bật GitHub Pages.
+
+## Chính sách publication-HOLD
+
+Tám bài blog tại baseline bảo tồn `2bc9824` đang HOLD / NOT CLEARED và không được phân phối công khai. Trang `/blog/` là canonical; `/blog.html` tiếp tục truy cập được. Không chép nội dung HOLD vào file công khai, nhánh, archive hoặc thư mục export. Không phục hồi từ lịch sử Git chỉ vì nội dung vẫn tồn tại ở baseline.
+
+Chỉ phục hồi từng bài sau khi có phê duyệt quyền xuất bản rõ ràng cho chính bài đó, xác minh quyền tác giả/quyền sử dụng và phạm vi cấp phép, hoàn tất review nội dung và được người có thẩm quyền duyệt. Khi đó cập nhật danh sách HOLD và fingerprint tương ứng qua PR riêng, rồi mới khôi phục file, metadata, liên kết và sitemap cho bài đã được duyệt; các bài còn lại tiếp tục HOLD. Không suy diễn rằng phê duyệt một bài áp dụng cho các bài khác.
+
+Chạy `node scripts/check-publication-hold.mjs` cùng kiểm tra liên kết trước khi đề xuất merge. Guard chỉ đọc, kiểm tra cây hiện tại (kể cả export/handoff), chặn tám đường dẫn/slug và bản sao tiêu đề, trích đoạn qua fingerprint một chiều của metadata công khai cũ; không chứa nội dung bài hoặc manifest bảo tồn riêng tư. Guard không thay thế review quyền và không nhận diện được mọi bản viết lại, ảnh chụp hay dữ liệu mã hóa. Generator chỉ đồng bộ các HTML hiện có, không có nguồn tái tạo bài HOLD.

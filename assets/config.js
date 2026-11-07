@@ -69,7 +69,7 @@ globalThis.OPENTRIX_CONFIG = {
     "blog.html": {
       "canonical": "blog/",
       "title": "Blog",
-      "description": "Kho bài viết của TRICORE về thiết kế, phát triển phần mềm và cộng tác nguồn mở."
+      "description": "Các bài viết trên blog đang chờ phê duyệt xuất bản."
     },
     "index.html": {
       "title": "Giới thiệu",
@@ -93,41 +93,9 @@ globalThis.OPENTRIX_CONFIG = {
       "title": "Công nghệ chúng tôi dùng",
       "description": "Những công cụ nguồn mở TRICORE lựa chọn và lý do dùng chúng trong dự án DX-OS Open-Core."
     },
-    "articles/api-va-giao-dich-khong-ro-ket-qua.html": {
-      "title": "Khi API mất phản hồi, yêu cầu đã được ghi hay chưa?",
-      "description": "Timeout không luôn đồng nghĩa với thất bại. Vì sao candidate Helpdesk giữ riêng kết quả commit chưa xác định?"
-    },
-    "articles/danh-tinh-va-quyen-truy-cap.html": {
-      "title": "Đăng nhập đúng chưa đủ để truy cập đúng",
-      "description": "OIDC xác minh bạn là ai. Ứng dụng vẫn phải quyết định bạn được làm gì với từng yêu cầu."
-    },
-    "articles/doc-bang-chung-ma-nguon-mo.html": {
-      "title": "Đọc một pull request: điều gì đã làm, điều gì đã được chứng minh?",
-      "description": "Merged, test PASS và LIVE là ba thông tin khác nhau. Một cách theo dõi dự án mã nguồn mở có trách nhiệm."
-    },
-    "articles/facility-va-bai-kiem-tra-tai-su-dung.html": {
-      "title": "Facility Maintenance: phép thử cho một nền tảng có thể tái sử dụng",
-      "description": "Nếu cùng một Core có thể phục vụ hỗ trợ IT và bảo trì cơ sở vật chất, bằng chứng cần trông như thế nào?"
-    },
-    "articles/helpdesk-tu-yeu-cau-den-xac-nhan.html": {
-      "title": "IT Helpdesk: từ “ai đang xử lý?” đến một lịch sử rõ ràng",
-      "description": "Theo dõi một yêu cầu từ lúc gửi đến khi xác nhận kết quả, và hiểu phần nào vẫn đang chờ nghiệm thu."
-    },
-    "articles/khao-sat-truoc-khi-viet-code.html": {
-      "title": "Trước dòng code đầu tiên, hãy hiểu cách doanh nghiệp làm việc",
-      "description": "Một khảo sát hữu ích bắt đầu từ việc tìm hiểu luồng xử lý thật, không bắt đầu bằng danh sách tính năng muốn bán."
-    },
-    "articles/tu-mock-den-live.html": {
-      "title": "Từ MOCK đến LIVE: khoảng cách nằm ở những ranh giới",
-      "description": "Một giao diện hoạt động mượt là điểm khởi đầu. Session, DTO, lỗi và hệ thống thật mới quyết định chất lượng tích hợp."
-    },
-    "articles/workflow-va-ung-dung.html": {
-      "title": "Một lõi Workflow, nhiều bài toán doanh nghiệp",
-      "description": "Vì sao phân công kỹ thuật viên thuộc về Helpdesk, còn trạng thái, phiên bản và lịch sử thuộc về Workflow Core?"
-    },
     "blog/index.html": {
       "title": "Blog",
-      "description": "Đọc và tìm kiếm bài viết của TRICORE về kiến trúc, ứng dụng và những bài học khi làm nguồn mở."
+      "description": "Các bài viết trên blog đang chờ phê duyệt xuất bản."
     },
     "docs/architecture.html": {
       "title": "Kiến trúc",
