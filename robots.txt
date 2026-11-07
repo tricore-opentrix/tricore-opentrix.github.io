@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /export/
+Sitemap: https://tricore-opentrix.github.io/sitemap.xml

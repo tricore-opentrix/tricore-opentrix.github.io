@@ -1,0 +1,78 @@
+{
+  "scope": "Helpdesk Backend source reference; not OpenAPI or runtime verification",
+  "sha": "0e789cffa11447f3acef25d0e582bf25ed46c7b4",
+  "routes": [
+    {
+      "id": "create",
+      "method": "POST",
+      "path": "/api/v1/mvp/requests",
+      "name": "Tạo yêu cầu",
+      "body": "Create",
+      "result": "201 Created; response là RequestView. Header Location trỏ tới /api/v1/mvp/requests/{id}."
+    },
+    {
+      "id": "list",
+      "method": "GET",
+      "path": "/api/v1/mvp/requests",
+      "name": "Danh sách yêu cầu",
+      "body": null,
+      "result": "Page { items, nextCursor }. after: UUID, không bắt buộc. limit: số nguyên 1–100, mặc định 50. items chỉ gồm yêu cầu đọc được; nextCursor là UUID hoặc null."
+    },
+    {
+      "id": "detail",
+      "method": "GET",
+      "path": "/api/v1/mvp/requests/{id}",
+      "name": "Chi tiết yêu cầu",
+      "body": null,
+      "result": "RequestView; id là UUID. Các trường tên hiển thị chỉ được đưa vào khi có dữ liệu; eligibleAssignees chỉ có ở chi tiết khi allowedActions chứa assign."
+    },
+    {
+      "id": "history",
+      "method": "GET",
+      "path": "/api/v1/mvp/requests/{id}/history",
+      "name": "Lịch sử chuyển trạng thái",
+      "body": null,
+      "result": "Mảng HistoryView: transitionId, sourceState, targetState, version, occurredAt. Đây là lịch sử chuyển trạng thái Workflow; không suy diễn thành toàn bộ audit log hoặc lịch sử assignment."
+    },
+    {
+      "id": "triage",
+      "method": "POST",
+      "path": "/api/v1/mvp/requests/{id}/triage",
+      "name": "Tiếp nhận / phân loại",
+      "body": "Version",
+      "result": "RequestView; service gọi transition triage."
+    },
+    {
+      "id": "assign",
+      "method": "POST",
+      "path": "/api/v1/mvp/requests/{id}/assign",
+      "name": "Phân công người xử lý",
+      "body": "Assign",
+      "result": "RequestView; kiểm tra expectedAssignmentVersion riêng với version của Workflow."
+    },
+    {
+      "id": "start",
+      "method": "POST",
+      "path": "/api/v1/mvp/requests/{id}/start",
+      "name": "Bắt đầu xử lý",
+      "body": "Version",
+      "result": "RequestView; route /start gọi transition nội bộ start_work."
+    },
+    {
+      "id": "resolve",
+      "method": "POST",
+      "path": "/api/v1/mvp/requests/{id}/resolve",
+      "name": "Ghi nhận kết quả",
+      "body": "Resolve",
+      "result": "RequestView; resolution bắt buộc, không được để trống."
+    },
+    {
+      "id": "confirm",
+      "method": "POST",
+      "path": "/api/v1/mvp/requests/{id}/confirm",
+      "name": "Xác nhận kết quả",
+      "body": "Version",
+      "result": "RequestView; service gọi transition confirm. Không có route /close trong controller này."
+    }
+  ]
+}

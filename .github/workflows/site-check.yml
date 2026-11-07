@@ -1,0 +1,33 @@
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  site-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          package-manager-cache: false
+      - name: Check publication HOLD
+        run: node scripts/check-publication-hold.mjs
+      - name: Check survey publication hold
+        run: node scripts/check-survey-publication.mjs
+      - name: Check links and metadata
+        run: node scripts/check-links.mjs
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          for file in assets/*.js docs/*.js scripts/*.mjs; do
+            node --check "$file" || exit 1
+          done
