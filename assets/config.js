@@ -72,7 +72,7 @@ globalThis.OPENTRIX_CONFIG = {
     },
     "index.html": {
       "title": "Giới thiệu",
-      "description": "TRICORE là đội sinh viên xây dựng DX-OS Open-Core, dự thi OLP Phần mềm nguồn mở 2026 và chia sẻ hành trình làm nguồn mở."
+      "description": "TRICORE là đội sinh viên xây dựng DX-OS Open-Core, hướng tới mục tiêu nộp dự án cho OLP Phần mềm nguồn mở 2026 và chia sẻ hành trình làm nguồn mở."
     },
     "solutions.html": {
       "title": "Dự án",

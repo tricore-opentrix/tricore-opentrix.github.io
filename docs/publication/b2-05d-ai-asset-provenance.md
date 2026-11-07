@@ -42,3 +42,20 @@ No individual creator, precise generator, prompt, external template, reference U
 **A1–A3: PENDING VERIFICATION / NOT CLEARED.** Obtain precise asset-level provenance and approval, or defer public distribution of the respective asset and its references before release. This document is an evidence register, not a copyright ownership determination.
 
 **P6 PR #2 remains Draft and must not be merged solely on the basis of this declaration.**
+
+## B2-05E-02 - Current-tree asset distribution HOLD
+
+Baseline: `site/p6-release@d489903f9784dcaac64c667a424a5dfbfdcf82bf`.
+
+| Original path | Bytes | SHA-256 | Git blob identifier at baseline |
+|---|---:|---|---|
+| `assets/share.png` | 41522 | `25fc52e2822867506c0b40c4561275b87cbb10deb72ebcc4429dbfbc51abb9a1` | `5f1bef543b2b2112b73e5c3bfa1a2c62c1d4fae6` |
+| `assets/favicon.svg` | 339 | `282682c5517d519d1130dfaa91dd14827012fa82e33a7f4724e3358ab91312bc` | `22fbe11f3bcaf3368e572351204668bc733433fc` |
+
+The custodian externally confirmed private preservation: both copies passed SHA-256 verification, a restore test passed, the unexpected read permission was removed, and seven relevant paths passed ACL verification. This confirmation was supplied for this task; the implementation did not access the private preservation location or independently repeat its checks. No private location is disclosed here.
+
+Both original assets have been removed from the current P6 working tree. Public HTML and generated metadata no longer reference them. The inline architecture SVG is deferred from the public project page; the existing technical explanation is retained as text. A read-only asset-distribution HOLD guard checks paths, known byte-identical copies, public references and generator literals, and runs before the existing publication checks in Site checks.
+
+Rights for A1-A3 remain **UNKNOWN / NOT CLEARED**. Preservation, file removal and passing CI do not establish authorship, licensing or redistribution permission. Restoring any asset to public distribution requires explicit asset-level clearance and independent review.
+
+**Historical Git distribution remains unresolved.** Current-tree removal does not erase earlier commits, blobs, other branches/tags, archives, clones, forks, deployments or caches. No Git history was rewritten. Historical rights review and any later withdrawal decision remain separate from this current-tree HOLD; this register does not claim complete removal from public distribution.

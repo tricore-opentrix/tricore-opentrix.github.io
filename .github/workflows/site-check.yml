@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: lts/*
           package-manager-cache: false
+      - name: Check asset distribution HOLD
+        run: node scripts/check-asset-distribution-hold.mjs
       - name: Check publication HOLD
         run: node scripts/check-publication-hold.mjs
       - name: Check survey publication hold

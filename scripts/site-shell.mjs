@@ -29,8 +29,8 @@ export function footer(file){
 </div><div class="site-footer-bottom"><span>© 2026 opentrix · ${escape(config.team)}</span><a href="${p.project}#lo-trinh">Lộ trình dự án</a><a href="#top">Lên đầu trang</a></div></div></footer><!-- site-footer:end -->`;
 }
 export function metadata(title,description,canonical){
-  const image=config.origin+'/assets/share.png',alt='opentrix · TRICORE — đội sinh viên phát triển DX-OS Open-Core';
-  return `<meta name="description" content="${escape(description)}"><meta name="theme-color" content="#b43a1e"><link rel="canonical" href="${escape(canonical)}"><meta property="og:type" content="website"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="${escape(config.name)}"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${escape(canonical)}"><meta property="og:image" content="${escape(image)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${escape(alt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${escape(image)}"><meta name="twitter:image:alt" content="${escape(alt)}">`;
+  // Image and Open Graph publication deferred pending asset clearance.
+  return `<meta name="description" content="${escape(description)}"><meta name="theme-color" content="#b43a1e"><link rel="canonical" href="${escape(canonical)}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}">`;
 }
 export function applyShell(html,file){
   const p=linksFor(file),isDocs=file.startsWith('docs/');
@@ -44,7 +44,7 @@ export function applyShell(html,file){
   html=html.replace(/<link\b(?=[^>]*href="(?:\.\.\/)*(?:assets\/)?(?:tokens|landing|unified)\.css")[^>]*>/g,'');
   html=html.replace(/<link\b(?=[^>]*rel="(?:icon|canonical)")[^>]*>/g,'');
   html=html.replace(/<script\b(?=[^>]*src="(?:\.\.\/)*assets\/unified\.js")[^>]*>[\s\S]*?<\/script>/g,'');
-  html=html.replace('</head>',`<link rel="stylesheet" href="${p.prefix}assets/tokens.css"><link rel="stylesheet" href="${p.prefix}assets/landing.css"><link rel="stylesheet" href="${p.prefix}assets/unified.css"><link rel="icon" type="image/svg+xml" href="${p.prefix}assets/favicon.svg"><script data-site-theme>try{document.documentElement.dataset.theme=localStorage.getItem('opentrix-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}catch(e){}</script><script defer src="${p.prefix}assets/unified.js"></script></head>`);
+  html=html.replace('</head>',`<link rel="stylesheet" href="${p.prefix}assets/tokens.css"><link rel="stylesheet" href="${p.prefix}assets/landing.css"><link rel="stylesheet" href="${p.prefix}assets/unified.css"><script data-site-theme>try{document.documentElement.dataset.theme=localStorage.getItem('opentrix-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}catch(e){}</script><script defer src="${p.prefix}assets/unified.js"></script></head>`);
   const page=config.pages[file]||{};
   const heading=decode(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1].replace(/<[^>]*>/g,'')||'opentrix');
   const title=file==='index.html'?'TRICORE — đội phát triển DX-OS Open-Core':(page.title||heading)+' · TRICORE';

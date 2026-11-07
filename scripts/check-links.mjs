@@ -28,9 +28,12 @@ for (const [page, html] of contents) {
       if (![...targetHTML.matchAll(/\sid="([^"]+)"/g)].some(m => m[1] === fragment)) failures.push(`${page}: missing fragment ${href}`);
     }
   }
-  for (const key of ['og:title', 'og:description', 'og:site_name', 'og:image', 'twitter:title', 'twitter:description', 'twitter:image']) {
+  for (const key of ['description', 'twitter:card', 'twitter:title', 'twitter:description']) {
     if (!html.includes(`="${key}" content="`)) failures.push(`${page}: missing metadata ${key}`);
   }
+  // Text-only fallback: do not redistribute uncleared artwork through metadata or markup.
+  if (!html.includes('name="twitter:card" content="summary"')) failures.push(`${page}: text-only summary card required`);
+  if (/assets\/(?:share\.png|favicon\.svg)|architecture-diagram|<meta\b[^>]*(?:property="og:|name="twitter:image)/i.test(html)) failures.push(`${page}: deferred asset or image metadata reintroduced`);
   if (!html.match(/<title>[^<]*TRICORE[^<]*<\/title>/)) failures.push(`${page}: missing TRICORE title`);
   if (!html.includes('<html lang="vi"')) failures.push(`${page}: missing Vietnamese language`);
   if ((html.match(/rel="canonical"/g)||[]).length!==1) failures.push(`${page}: canonical missing or duplicated`);

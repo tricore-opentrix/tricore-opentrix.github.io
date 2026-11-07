@@ -8,7 +8,7 @@ Chỉ mở lại thu thập sau khi được phê duyệt: đơn vị/người v
 
 Chạy `node scripts/check-survey-publication.mjs` trước khi đề xuất merge. Guard chỉ đọc, không dùng mạng, chặn biểu mẫu chưa duyệt và binding khảo sát ngoài; không chặn liên kết nội bộ `survey.html`. Việc mở lại phải qua review riêng, cập nhật guard và nội dung công khai theo phê duyệt. Không công bố số liệu hoặc kết quả nghiên cứu chưa được xác minh.
 
-Website giới thiệu đội sinh viên **TRICORE**: thành viên, dự án, blog, cộng đồng và liên hệ. DX-OS Open-Core là dự án tiêu biểu dự thi OLP Phần mềm nguồn mở 2026; tài liệu kỹ thuật chính thức thuộc repo sản phẩm.
+Website giới thiệu đội sinh viên **TRICORE**: thành viên, dự án, blog, cộng đồng và liên hệ. DX-OS Open-Core là dự án tiêu biểu được phát triển với mục tiêu nộp cho OLP Phần mềm nguồn mở 2026; việc tham dự chưa được xác nhận; tài liệu kỹ thuật chính thức thuộc repo sản phẩm.
 
 - Website: https://tricore-opentrix.github.io/
 - GitHub đội: https://github.com/tricore-opentrix
