@@ -25,7 +25,9 @@ No individual identity, biography or role is approved for the public landing.
 | Team names, photos, accounts, roles and biographies | Explicit user HOLD | Excluded from landing/artifact | Yến approves exact public content; product README is not website approval |
 | Survey form and results | Principle approved; URL could not be inspected by web reader; controller/purpose/fields/retention/consent not verified | **HOLD**, config URL empty, no public CTA | Verify URL and data scope without submitting a response; separately approve metrics/quotes |
 
-The foundation artifact has no image/font dependency. `data:,` is an empty favicon, not a replacement logo.
+The foundation artifact contained no image/font dependency; the current amendment adds an
+original social PNG and architecture SVG for local review. Third-party network requests remain
+absent in the tested pages. `data:,` is an empty favicon, not a replacement logo.
 Existing excluded assets are preserved, not deleted. No blanket Apache header is applied to them.
 
 ## Product repository — read-only review
@@ -54,3 +56,18 @@ or remote comment was created. Detailed PoF consequences: [POF](POF.md).
 Official reference checked: [Apache license text](https://www.apache.org/licenses/LICENSE-2.0.txt)
 and [OSI Apache entry](https://opensource.org/license/apache-2.0). Retain license/attribution,
 mark modifications and resolve upstream obligations; inclusion of LICENSE alone is insufficient.
+
+## Current #8–#10 amendment (2026-11-11)
+
+Legacy exclusions above refer to legacy revisions. Replacement about/technology pages, roadmap and blocked API page are now included in LOCAL_REVIEW only; they are not release approvals.
+
+| Material | Source / rights | Current disposition |
+| --- | --- | --- |
+| New architecture SVG | Original code drawing, no copied old icons or VFOSSA/OpenVie image; technical sources #5/README/topology | Local review; Yến/Bảo must confirm authorship attribution and original-work license scope before release |
+| New social PNG | Original typographic source scripts/render-social.mjs, system font rasterization, no bundled font binary | Local review; text M01/M03/M12, owner approval pending; no third-party image reuse |
+| Parser/UI/mock/TEST fixtures/tests | New source written with coding assistance in this local session; not copied from historical Swagger PRs | Source-only origin record; owner confirms rights/contribution disposition, no public tool credit/watermark added |
+| QA tooling | tools/qa lockfile; Playwright and html-validate dev-only, dependencies retain licenses | Not copied to static artifact; no blanket relicensing of packages or browser |
+| Team configuration | members and affiliation empty | No unapproved personal fields shipped, Yến approval required |
+| Survey URL | Read-only GET now returned HTTP 200 and expected IT Support title; web reader failed separately | No form submitted. Controller/purpose/fields/retention/consent and any metrics/quotes remain HOLD |
+
+Product #138 read again: still open, requests provenance including generated/AI-assisted/external material. This source-only record supplies origin transparency; it does not assign human authorship or clear rights. No separate AI disclosure rule was identified in the two official VFOSSA pages actually read; obtain owner/BTC clarification if another applicable rule exists. Existing credits and third-party texts retained. Website LICENSE text rechecked against official Apache (normalized exact match). Legal/distribution acceptance remains BLOCKED.

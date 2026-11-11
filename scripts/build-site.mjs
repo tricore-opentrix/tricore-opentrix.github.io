@@ -7,25 +7,12 @@ import { verifyProvenance } from './openapi.mjs';
 import { renderAPI } from './render-api.mjs';
 export const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const approvedFiles = Object.freeze([
-  'index.html',
-  '404.html',
-  'robots.txt',
-  '.nojekyll',
-  'LICENSE',
-  'NOTICE',
-  'assets/style.css',
-  'assets/config.js',
-  'assets/landing.js',
-  'about.html',
-  'assets/pages.css',
-  'assets/team.js',
-  'roadmap.html',
-  'technology.html',
-  'assets/dxos-architecture.svg',
-  'assets/tokens.css',
-  'docs/index.html',
-  'assets/api-reference.mjs',
-  'assets/mock-engine.mjs',
+  'index.html', '404.html', 'robots.txt', '.nojekyll', 'LICENSE', 'NOTICE',
+  'assets/style.css', 'assets/config.js', 'assets/landing.js',
+  'about.html', 'roadmap.html', 'technology.html', 'docs/index.html', 'sitemap.xml',
+  'assets/pages.css', 'assets/tokens.css', 'assets/team.js',
+  'assets/dxos-architecture.svg', 'assets/og-image.png', 'assets/og-image.png.license',
+  'assets/api-reference.mjs', 'assets/mock-engine.mjs',
 ]);
 export function buildSite({ testAPI = false } = {}) {
   let spec, bytes;

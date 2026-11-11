@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: Apache-2.0
 // Optional local test tools: npm install --prefix .local/tools --no-save playwright html-validate
 import assert from 'node:assert/strict';
-import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import { root } from './build-site.mjs';
-const require = createRequire(join(root, '.local/tools/package.json'));
+const require = createRequire(join(root, existsSync(join(root,'tools/qa/node_modules/playwright')) ? 'tools/qa/package.json' : '.local/tools/package.json'));
 const { chromium } = require('playwright');
 const browser = await chromium.launch({ headless: true,
   ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE } : {}) });

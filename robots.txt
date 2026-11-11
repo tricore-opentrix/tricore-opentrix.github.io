@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
 User-agent: *
+Allow: /
 Disallow: /articles/
-Disallow: /blog.html
+Disallow: /blog
+Disallow: /survey
+Disallow: /solutions
+Sitemap: https://tricore-opentrix.github.io/sitemap.xml

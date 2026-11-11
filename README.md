@@ -3,7 +3,7 @@
 # OpenTrix — Website v1
 
 Website tĩnh của TRICORE. Nhánh làm việc Issue #7: `docs/marketing-guide-landing`.
-Nội dung chuẩn: [MARKETING_GUIDE](MARKETING_GUIDE.md), gồm S0–S12, M01–M25 và bốn status chip.
+Nội dung chuẩn: [MARKETING_GUIDE](MARKETING_GUIDE.md), gồm S0–S12, M01–M35 (M23/M26 HOLD) và bốn status chip.
 Sản phẩm: [tricore-opentrix/opentrix](https://github.com/tricore-opentrix/opentrix).
 
 **BLOCKED phát hành:** Pages hiện tại phục vụ từ `main /`; kiểm tra 2026-11-11 cho thấy
@@ -60,3 +60,15 @@ không được tự gán giấy phép đó. Không công bố tên/vai trò/ả
 ## Updating API docs
 
 Nguồn chính thức **BLOCKED** vì thiếu export runtime đã duyệt. Xem [quy trình](docs/issue-4/OPENAPI_SOURCE.md). Khi Yến/Bảo cung cấp bundle và provenance: export → thay api-docs.json và metadata → rebuild. Không sửa HTML từng endpoint, không gọi backend trong browser. Fixture TEST không phải API sản phẩm.
+
+## QA và bàn giao #4–#10
+
+Trang local: /, /about.html, /roadmap.html, /technology.html, /docs/ và 404. Xem [báo cáo](ISSUE_DELIVERY_REPORT.md), [nhật ký](docs/CHANGELOG-LOCAL.md), [source evidence](docs/SOURCE_EVIDENCE.md). Giữ tám bài HOLD ngoài artifact.
+
+Cài công cụ dev bằng `npm.cmd ci --prefix tools/qa --ignore-scripts`; dùng Chromium đã có qua PLAYWRIGHT_CHROMIUM_EXECUTABLE hoặc cài browser của Playwright. QA công cụ được khóa bằng package-lock, không ship lên website.
+
+Lệnh kiểm tra: `node --test tests/*.test.mjs`, `node scripts/build-site.mjs`, `node scripts/check-links.mjs`, `node scripts/check-site.mjs`, `node scripts/check-hygiene.mjs`, `node scripts/test-browser.mjs`, `node scripts/test-full-browser.mjs`, `node scripts/check-external.mjs`.
+
+`node scripts/build-site.mjs --test-api` tạo artifact TEST riêng, ghi .local/latest-test-build.txt; tuyệt đối không dùng nó để publish. Default pointer .local/latest-build.txt chỉ tới LOCAL_REVIEW. Thiếu official spec thì docs BLOCKED.
+
+CI chỉ test, chưa chạy trên GitHub cho bản local này. Deploy template inactive tại docs/issue-10/pages-workflow.yml.example. Không upload repository root; Pages hiện vẫn legacy main-root nên URL HOLD public phải kiểm lại sau chuyển artifact đã duyệt. Không sửa Homepage/README sản phẩm trong phiên này.
