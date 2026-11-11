@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Website local checks
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: website-qa-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  static-and-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          clean: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24.19.0'
+      - run: npm ci --prefix tools/qa --ignore-scripts
+      - run: node tools/qa/node_modules/playwright/cli.js install --with-deps chromium
+      - run: node --test tests/*.test.mjs
+      - run: node scripts/build-site.mjs
+      - run: node scripts/check-links.mjs
+      - run: node scripts/check-site.mjs
+      - run: tools/qa/node_modules/.bin/html-validate index.html about.html roadmap.html technology.html docs/index.html 404.html
+      - run: node scripts/test-browser.mjs
+      - run: node scripts/test-full-browser.mjs
+      - name: Validate generated TEST HTML and artifact
+        shell: bash
+        run: |
+          test_artifact=$(cat .local/latest-test-build.txt)
+          node scripts/check-site.mjs "$test_artifact"
+          tools/qa/node_modules/.bin/html-validate "$test_artifact/docs/index.html"
+      - run: node scripts/check-external.mjs
+      - run: node scripts/check-hygiene.mjs
+      - run: git diff --check
+# No Pages permissions, upload, deployment, product mutation or remote comments.

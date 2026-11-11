@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: Apache-2.0
+# INACTIVE TEMPLATE. This file is outside .github/workflows and is never executed.
+# Install only after Yến/Bảo acceptance, rights and current public HOLD-URL gates.
+name: Website Pages (review template)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reviewed-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          clean: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.19.0'
+      - run: node --test tests/*.test.mjs
+      - run: node scripts/build-site.mjs
+      - run: node scripts/check-site.mjs
+      - run: node scripts/check-links.mjs
+      - name: Deliberate release gate
+        run: |
+          echo 'BLOCKED: install pinned upload/deploy actions only after approval on exact SHA.'
+          exit 1
+# After independent review, add environment-protected Pages upload/deploy jobs with
+# permissions pages:write/id-token:write scoped to deploy, and upload only the path
+# in .local/latest-build.txt. Never upload root, .local, or latest-test-build.txt.
+# Current template intentionally cannot deploy even if accidentally copied.

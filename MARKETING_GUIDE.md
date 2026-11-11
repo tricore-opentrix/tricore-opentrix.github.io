@@ -173,3 +173,7 @@ Checklist: P/README Demonstration and Reuse (startup, security, workflow, data, 
 | --- | --- | --- | --- |
 | M34 | Official API export BLOCKED; TEST riêng; renderer chỉ dùng nguồn có provenance | [#4](https://github.com/tricore-opentrix/tricore-opentrix.github.io/issues/4), [R31 tại P](https://github.com/tricore-opentrix/opentrix/blob/832c75fc3164cf170eed3bb8f1e380d24dd65aba/docs/verification/r31/r31-helpdesk-api-crosswalk.md), [source review](docs/issue-4/OPENAPI_SOURCE.md) | source inspection, không export/kiểm runtime; khi có spec cần review lại exact bytes/provenance |
 | M35 | Website MOCK sampler theo seed, subset schema, delay giả lập, không gọi backend | [#9](https://github.com/tricore-opentrix/tricore-opentrix.github.io/issues/9), [mock-engine](assets/mock-engine.mjs), [renderer](scripts/render-api.mjs), [tests](tests/mock.test.mjs) | implementation website kiểm bằng TEST; không mô tả nghiệp vụ API hoặc bảo đảm JSON Schema đầy đủ |
+
+## Ranh giới mở rộng #8–#10
+
+Allowlist nay gồm Team chỉ TRICORE, roadmap, architecture draft có giới hạn, API BLOCKED và SEO. Các trang legacy còn lại, tám bài HOLD và asset cũ vẫn không được publish. Các mục #7 mô tả allowlist landing-only là hồ sơ giai đoạn trước, xem script hiện hành và báo cáo bàn giao. M26 tiếp tục HOLD, M23 không công bố khảo sát.

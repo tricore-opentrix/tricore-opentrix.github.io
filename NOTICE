@@ -17,3 +17,12 @@ traceability, branding, isolated publication builder and local checks.
 Existing layout/CSS is retained; external and local font loads are removed.
 Source authorship alone is not proof of ownership. Remaining provenance and
 asset approvals must be resolved before those assets can be published.
+
+Issues #8, #6, #5, #4, #9 and #10 local modifications (2026-11-11):
+team publication controls, source-scoped roadmap, original architecture draft,
+OpenAPI parser and TEST-only fixtures, offline MOCK reference, SEO and QA.
+The new architecture SVG and typographic social image are original drafts;
+they do not reuse the excluded legacy logo/icons. Original-work license and
+diagram authorship confirmation remain subject to owner review.
+Selected replacement pages are included only in LOCAL_REVIEW artifacts.
+The exclusions above continue to apply to unreviewed legacy revisions.

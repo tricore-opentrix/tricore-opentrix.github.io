@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0; intended canonical URLs, public deployment PENDING. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tricore-opentrix.github.io/</loc></url>
+  <url><loc>https://tricore-opentrix.github.io/about.html</loc></url>
+  <url><loc>https://tricore-opentrix.github.io/roadmap.html</loc></url>
+  <url><loc>https://tricore-opentrix.github.io/technology.html</loc></url>
+  <url><loc>https://tricore-opentrix.github.io/docs/</loc></url>
+</urlset>
