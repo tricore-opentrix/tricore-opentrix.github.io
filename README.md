@@ -56,3 +56,7 @@ Không có lệnh nào ở trên deploy website.
 Nội dung gốc được chủ dự án xác nhận cấp phép theo [Apache-2.0](LICENSE), với phạm vi
 và ngoại lệ trong [NOTICE](NOTICE). Font, tài sản bên thứ ba và nội dung chưa rõ quyền
 không được tự gán giấy phép đó. Không công bố tên/vai trò/ảnh thành viên chưa được Yến duyệt.
+
+## Updating API docs
+
+Nguồn chính thức **BLOCKED** vì thiếu export runtime đã duyệt. Xem [quy trình](docs/issue-4/OPENAPI_SOURCE.md). Khi Yến/Bảo cung cấp bundle và provenance: export → thay api-docs.json và metadata → rebuild. Không sửa HTML từng endpoint, không gọi backend trong browser. Fixture TEST không phải API sản phẩm.

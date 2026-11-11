@@ -18,3 +18,7 @@ roadmap.html, hunks S7/S10 index.html, M27–M30, review #6. Bốn mốc đồng
 ## #5 — architecture
 
 technology.html, dxos-architecture.svg, tokens.css, S5 link, M31–M33, review #5. Hai service/SeaweedFS khác source monolith/MinIO giữ PENDING. Workflow adapter chưa đăng ký nên Not yet.
+
+## #4 — OpenAPI
+
+openapi.mjs, tests parser, fixture TEST + license, OPENAPI_SOURCE, README cập nhật. Không tạo api-docs.json giả; official export BLOCKED.
