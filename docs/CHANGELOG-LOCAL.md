@@ -10,3 +10,7 @@ Giữ S0–S12, M01–M25, bốn chip và giao diện/CSS/allowlist đã có. L�
 ## #8 — team
 
 about.html, config.js, team.js, pages.css, M26, review #8. Không có dữ liệu cá nhân HOLD trong config ship; chỉ TRICORE/TC. Cá nhân/affiliation pending consent.
+
+## #6 — roadmap
+
+roadmap.html, hunks S7/S10 index.html, M27–M30, review #6. Bốn mốc đồng bộ, không cam kết ngày, source/runbook khác runtime acceptance.
