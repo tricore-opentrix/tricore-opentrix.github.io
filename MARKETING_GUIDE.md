@@ -147,3 +147,14 @@ Không tự commit/push/tạo PR/deploy; người dùng quyết định thời �
 | M-code | Nội dung được phép | Nguồn cụ thể | Loại / quyết định / giới hạn |
 | --- | --- | --- | --- |
 | M26 | Ba tên và CMC University chỉ là dữ liệu đề nghị duyệt | [#8](https://github.com/tricore-opentrix/tricore-opentrix.github.io/issues/8), [P Team](https://github.com/tricore-opentrix/opentrix/blob/832c75fc3164cf170eed3bb8f1e380d24dd65aba/README.md#team) | HOLD; config publish không chứa cá nhân/affiliation; Yến xác nhận từng trường và permalink trước khi mở. |
+
+## Bổ sung #6 — Roadmap
+
+Checklist: P/README Demonstration and Reuse (startup, security, workflow, data, reuse, traceability). Chưa có checklist riêng đã duyệt; Yến/Bảo xác nhận thứ tự ưu tiên.
+
+| M-code | Nội dung được phép | Nguồn cụ thể | Loại / quyết định / giới hạn |
+| --- | --- | --- | --- |
+| M27 | MOCK Portal: Available. Source và hướng dẫn demo in-memory; không chứng minh backend hoặc SSO. | [P README](https://github.com/tricore-opentrix/opentrix/blob/832c75fc3164cf170eed3bb8f1e380d24dd65aba/README.md#option-a--mock-portal-quick-ui-demonstration) | source/runbook; không chạy lại sản phẩm; publish limited |
+| M28 | Stack integration-local: Self-configured. Tự cấp Keycloak, PostgreSQL 17, Backend, BFF và HTTPS. Build chưa chứng minh tích hợp chạy. | [P README](https://github.com/tricore-opentrix/opentrix/blob/832c75fc3164cf170eed3bb8f1e380d24dd65aba/README.md#option-c--integration-local-portal-configured-local-stack) | source/runbook; không chạy lại sản phẩm; publish limited |
+| M29 | Browser E2E và tái sử dụng Facility: Not yet. Checklist yêu cầu identity, quyền, workflow, dữ liệu và hai ứng dụng; chưa có nghiệm thu đầy đủ ở nguồn đối chiếu. | [P README](https://github.com/tricore-opentrix/opentrix/blob/832c75fc3164cf170eed3bb8f1e380d24dd65aba/README.md#demonstration-and-reuse) | source/runbook; không chạy lại sản phẩm; publish limited |
+| M30 | APISIX, object storage và production: Not yet. README chọn APISIX và MinIO, chưa nhận là năng lực hoàn thành. Không ấn định lịch phát hành. | [P README](https://github.com/tricore-opentrix/opentrix/blob/832c75fc3164cf170eed3bb8f1e380d24dd65aba/README.md#known-limitations) | source/runbook; không chạy lại sản phẩm; publish limited |

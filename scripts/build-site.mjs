@@ -17,6 +17,7 @@ export const approvedFiles = Object.freeze([
   'about.html',
   'assets/pages.css',
   'assets/team.js',
+  'roadmap.html',
 ]);
 export function buildSite() {
   mkdirSync(join(root, '.local'), { recursive: true });
