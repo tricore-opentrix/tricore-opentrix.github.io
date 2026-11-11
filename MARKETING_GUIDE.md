@@ -141,3 +141,9 @@ Release v0.1.0 ghi nhận R12 M1 nhưng vẫn thiếu real Keycloak/full LIVE br
 PR local: [PR_DRAFT](docs/issue-7/PR_DRAFT.md), dùng `Refs #7` khi còn gate; chỉ đề xuất `Closes #7` sau acceptance, có reviewer, nguồn, files, tests,
 HOLD và limitations. Không đóng #7 chỉ vì có draft/build/source evidence.
 Không tự commit/push/tạo PR/deploy; người dùng quyết định thời điểm upload.
+
+## Bổ sung #8 — Team
+
+| M-code | Nội dung được phép | Nguồn cụ thể | Loại / quyết định / giới hạn |
+| --- | --- | --- | --- |
+| M26 | Ba tên và CMC University chỉ là dữ liệu đề nghị duyệt | [#8](https://github.com/tricore-opentrix/tricore-opentrix.github.io/issues/8), [P Team](https://github.com/tricore-opentrix/opentrix/blob/832c75fc3164cf170eed3bb8f1e380d24dd65aba/README.md#team) | HOLD; config publish không chứa cá nhân/affiliation; Yến xác nhận từng trường và permalink trước khi mở. |
