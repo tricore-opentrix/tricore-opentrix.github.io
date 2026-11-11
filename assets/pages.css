@@ -1,0 +1,9 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Issue #8 onward: additions reuse the existing layout and theme. */
+.page-intro{padding-top:64px;padding-bottom:28px}.page-intro p{max-width:72ch;margin-top:20px}
+.evidence-note{border-left:3px solid var(--blue);padding:16px 20px;background:var(--surface);margin-block:24px}
+.review-content p,.review-content ul,.review-content ol{margin-block:16px}.review-content a:not(.button){text-decoration:underline;text-underline-offset:3px}
+.initial-avatar{display:grid;place-items:center;background:var(--soft);color:var(--text);width:64px;height:64px;border-radius:50%;font-weight:700}
+.review-content code,.review-content a,.review-content td{overflow-wrap:anywhere}.review-content figure{margin-block:24px}
+.review-content .status{display:inline-block;white-space:normal}.review-content h2{margin-block:26px 18px}
+@media(max-width:760px){.page-intro{padding-top:36px}.review-content .table-wrap{max-width:100%;overflow:auto}.review-content .table-wrap table{min-width:0}.review-content .table-wrap th,.review-content .table-wrap td{padding:12px 8px}.review-content .section{padding-block:36px}}
