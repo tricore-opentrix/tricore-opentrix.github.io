@@ -1,0 +1,22 @@
+{
+  "openapi": "3.1.0",
+  "info": {"title": "TEST fixture — not OpenTrix API", "version": "0.0.0-test"},
+  "x-opentrix-fixture": "TEST",
+  "paths": {
+    "/test/widgets/{id}": {
+      "parameters": [{"name": "id", "in": "path", "required": true, "schema": {"type": "string"}}],
+      "get": {
+        "tags": ["TEST Widgets", "TEST Read"], "summary": "TEST widget fixture",
+        "parameters": [{"name": "limit", "in": "query", "schema": {"type": "integer", "minimum": 1}}],
+        "responses": {"200": {"description": "TEST synthetic response", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/TestWidget"}}}}}
+      },
+      "patch": {
+        "tags": ["TEST Widgets"], "summary": "TEST mutation fixture — never sent",
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"type": "object", "properties": {"label": {"type": "string"}}}}}},
+        "responses": {"200": {"description": "TEST", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/TestWidget"}}}}, "204": {"description": "TEST no content"}}
+      }
+    },
+    "/test/ping": {"get": {"responses": {"204": {"description": "TEST no content"}}}}
+  },
+  "components": {"schemas": {"TestWidget": {"type": "object", "required": ["id", "count"], "properties": {"id": {"type": "string", "format": "uuid"}, "count": {"type": "integer", "minimum": 1, "maximum": 9}, "enabled": {"type": "boolean"}, "tags": {"type": "array", "items": {"type": "string"}}, "state": {"type": "string", "enum": ["TEST_DRAFT", "TEST_READY"]}}}}}
+}
