@@ -1,0 +1,27 @@
+<!-- SPDX-License-Identifier: Apache-2.0; original diagram draft, rights confirmation pending. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1118" role="img" aria-labelledby="dxos-title dxos-desc">
+<title id="dxos-title">DX-OS ba tầng — kiến trúc mục tiêu</title>
+<desc id="dxos-desc">Tầng 3: ứng dụng IT Helpdesk. Tầng 2: H và P có source/demo, D và I dự kiến. Tầng 1 headless: APISIX định tuyến tới core-service và helpdesk-service mục tiêu; Keycloak, Workflow API, PostgreSQL 17, SeaweedFS và Node-RED. Nét đứt là chưa có bằng chứng triển khai hoặc nghiệm thu. Nét liền chỉ source/demo theo phạm vi nêu; không chứng minh LIVE. Workflow HTTP adapter chưa đăng ký controller.</desc>
+<style>.layer{fill:var(--arch-layer,#f7f9fc);stroke:var(--arch-line,#59677c)}.node{fill:var(--arch-node,#fff);stroke:var(--arch-line,#59677c);stroke-width:1.5}.pending{stroke-dasharray:5 4}.heading,.label{fill:var(--arch-text,#14223b);font-family:'Segoe UI',Arial,sans-serif}.heading{font-size:16px;font-weight:700}.label{font-size:14px;font-weight:600}.chip,.note{fill:var(--arch-text,#14223b);font:13px 'Segoe UI',Arial,sans-serif}.edge{fill:none;stroke:var(--arch-line,#59677c);stroke-width:1.5;stroke-dasharray:4 3}</style>
+<rect class="layer" x="4" y="4" width="352" height="128" rx="10"/><text class="heading" x="16" y="30">Tầng 3 · Ứng dụng nghiệp vụ</text>
+<g><rect class="node" x="16" y="46" width="328" height="64" rx="8"/><text x="26" y="70" class="label">IT Helpdesk · source</text><text x="26" y="93" class="chip">Available</text></g>
+<path class="edge" d="M180 132v26"/><text class="note" x="190" y="151">sử dụng năng lực</text>
+<rect class="layer" x="4" y="162" width="352" height="220" rx="10"/><text class="heading" x="16" y="190">Tầng 2 · H–P–D–I</text>
+<g><rect class="node" x="16" y="206" width="158" height="64" rx="8"/><text x="26" y="230" class="label">H · Portal MOCK</text><text x="26" y="253" class="chip">Available</text></g><g><rect class="node" x="186" y="206" width="158" height="64" rx="8"/><text x="196" y="230" class="label">P · Luồng Helpdesk</text><text x="196" y="253" class="chip">Available</text></g>
+<g><rect class="node pending" x="16" y="292" width="158" height="64" rx="8"/><text x="26" y="316" class="label">D · Data space</text><text x="26" y="339" class="chip">Not yet</text></g><g><rect class="node pending" x="186" y="292" width="158" height="64" rx="8"/><text x="196" y="316" class="label">I · Intelligence</text><text x="196" y="339" class="chip">Not yet</text></g>
+<path class="edge" d="M180 382v26"/><text class="note" x="190" y="401">API mục tiêu</text>
+<rect class="layer" x="4" y="414" width="352" height="644" rx="10"/><text class="heading" x="16" y="442">Tầng 1 · Core headless (không UI)</text>
+<g><rect class="node pending" x="16" y="462" width="328" height="64" rx="8"/><text x="26" y="486" class="label">APISIX · gateway mục tiêu</text><text x="26" y="509" class="chip">Not yet</text></g>
+<path class="edge" d="M180 526v16H95v18m85-18h85v18"/>
+<g><rect class="node pending" x="16" y="560" width="158" height="64" rx="8"/><text x="26" y="584" class="label">core-service</text><text x="26" y="607" class="chip">Not yet</text></g><g><rect class="node pending" x="186" y="560" width="158" height="64" rx="8"/><text x="196" y="584" class="label">helpdesk-service</text><text x="196" y="607" class="chip">Not yet</text></g>
+<text class="note" x="16" y="651">Hai service: mục tiêu #5, chưa runtime.</text>
+<g><rect class="node pending" x="16" y="670" width="158" height="64" rx="8"/><text x="26" y="694" class="label">Keycloak · SSO</text><text x="26" y="717" class="chip">Self-configured</text></g><g><rect class="node pending" x="186" y="670" width="158" height="64" rx="8"/><text x="196" y="694" class="label">Workflow API</text><text x="196" y="717" class="chip">Not yet</text></g>
+<g><rect class="node" x="16" y="758" width="158" height="64" rx="8"/><text x="26" y="782" class="label">PostgreSQL 17</text><text x="26" y="805" class="chip">Self-configured</text></g><g><rect class="node pending" x="186" y="758" width="158" height="64" rx="8"/><text x="196" y="782" class="label">SeaweedFS</text><text x="196" y="805" class="chip">Not yet</text></g>
+<g><rect class="node pending" x="16" y="846" width="328" height="64" rx="8"/><text x="26" y="870" class="label">Node-RED · tự động hóa</text><text x="26" y="893" class="chip">Not yet</text></g>
+<text class="note" x="16" y="944">Source: một backend modular monolith.</text>
+<text class="note" x="16" y="968">README chọn MinIO; SeaweedFS chờ duyệt.</text>
+<text class="note" x="16" y="992">Available: source/demo; chưa full browser E2E.</text>
+<text class="note" x="16" y="1016">Self-configured: prerequisite; chưa chứng minh chạy.</text>
+<text class="note" x="16" y="1040">H/P: chưa xác nhận toàn bộ năng lực của đề.</text>
+<text class="note" x="8" y="1088">Nét đứt: thiếu triển khai hoặc nghiệm thu.</text>
+<text class="note" x="8" y="1110">Không có thành phần nào gắn nhãn LIVE.</text></svg>

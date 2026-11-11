@@ -14,3 +14,7 @@ about.html, config.js, team.js, pages.css, M26, review #8. Không có dữ liệ
 ## #6 — roadmap
 
 roadmap.html, hunks S7/S10 index.html, M27–M30, review #6. Bốn mốc đồng bộ, không cam kết ngày, source/runbook khác runtime acceptance.
+
+## #5 — architecture
+
+technology.html, dxos-architecture.svg, tokens.css, S5 link, M31–M33, review #5. Hai service/SeaweedFS khác source monolith/MinIO giữ PENDING. Workflow adapter chưa đăng ký nên Not yet.
