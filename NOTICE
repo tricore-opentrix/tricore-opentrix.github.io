@@ -1,0 +1,19 @@
+OpenTrix website
+Original website material: TRICORE contributors, 2026.
+
+The project owner has confirmed authorization to license original website
+material under Apache-2.0. See LICENSE for the unmodified license text.
+This statement does not grant rights over third-party or unidentified material.
+
+Third-party materials retain their own licenses and attribution requirements.
+The legacy Be Vietnam Pro font files have an accompanying SIL OFL-1.1 text
+in assets/FONT-LICENSE.txt; their binary provenance is not yet verified.
+Legacy fonts, favicon/SVG/icons, blog and unapproved pages are excluded from
+the Website v1 publication artifact. They remain in source for review.
+See docs/issue-7/RIGHTS.md for the source-only rights register and exclusions.
+
+Issue #7 modifications (2026-11-11): landing copy, status vocabulary,
+traceability, branding, isolated publication builder and local checks.
+Existing layout/CSS is retained; external and local font loads are removed.
+Source authorship alone is not proof of ownership. Remaining provenance and
+asset approvals must be resolved before those assets can be published.

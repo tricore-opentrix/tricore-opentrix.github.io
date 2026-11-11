@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: Apache-2.0
+.idea/
+*.backup
+.local/
+node_modules/
+*.bak
+*.tmp
+*.log
+.env
+.env.*
+!.env.example
+.aws/
