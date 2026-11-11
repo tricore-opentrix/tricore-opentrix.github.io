@@ -7,14 +7,16 @@ import { approvedFiles, root } from './build-site.mjs';
 const artifact = resolve(process.argv[2] || readFileSync(join(root, '.local/latest-build.txt'), 'utf8').trim());
 const within = relative(join(root, '.local'), artifact);
 if (!within || within.startsWith('..') || within.includes(':')) throw Error('Preview must use an isolated .local artifact');
-const types = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'text/javascript; charset=utf-8', txt: 'text/plain; charset=utf-8' };
+const files = JSON.parse(readFileSync(join(artifact, 'website-manifest.json'), 'utf8')).files;
+const types = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'text/javascript; charset=utf-8', mjs: 'text/javascript; charset=utf-8', json: 'application/json; charset=utf-8', xml: 'application/xml; charset=utf-8', svg: 'image/svg+xml', png: 'image/png', txt: 'text/plain; charset=utf-8' };
 const port = Number(process.argv[3] || process.env.OPENTRIX_PREVIEW_PORT || 4177);
 createServer((req, res) => {
   let file;
   try { file = decodeURIComponent(new URL(req.url, 'http://localhost').pathname).slice(1) || 'index.html'; }
   catch { res.writeHead(400).end(); return; }
+  if (file === 'docs' || file === 'docs/') file = 'docs/index.html';
   if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405).end(); return; }
-  if (!approvedFiles.includes(file)) {
+  if (!files.includes(file)) {
     res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
     res.end(req.method === 'HEAD' ? undefined : readFileSync(join(artifact, '404.html'))); return;
   }
