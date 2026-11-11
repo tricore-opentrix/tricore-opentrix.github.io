@@ -22,3 +22,7 @@ technology.html, dxos-architecture.svg, tokens.css, S5 link, M31–M33, review #
 ## #4 — OpenAPI
 
 openapi.mjs, tests parser, fixture TEST + license, OPENAPI_SOURCE, README cập nhật. Không tạo api-docs.json giả; official export BLOCKED.
+
+## #9 — reference
+
+docs/index.html, render-api.mjs, api-reference.mjs, mock-engine.mjs, mock.test.mjs, M34–M35 và review #9. TEST build riêng; default BLOCKED.

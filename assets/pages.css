@@ -4,6 +4,8 @@
 .evidence-note{border-left:3px solid var(--blue);padding:16px 20px;background:var(--surface);margin-block:24px}
 .review-content p,.review-content ul,.review-content ol{margin-block:16px}.review-content a:not(.button){text-decoration:underline;text-underline-offset:3px}
 .initial-avatar{display:grid;place-items:center;background:var(--soft);color:var(--text);width:64px;height:64px;border-radius:50%;font-weight:700}
+.review-content pre{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;max-width:100%;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}
 .review-content code,.review-content a,.review-content td{overflow-wrap:anywhere}.review-content figure{margin-block:24px}
 .review-content .status{display:inline-block;white-space:normal}.review-content h2{margin-block:26px 18px}
+.api-operation{padding:24px 0;border-bottom:1px solid var(--line);min-width:0}.api-operation h3{font-size:19px;overflow-wrap:anywhere}.api-operation button{margin:8px 12px 8px 0}.api-operation label{display:block}.api-operation input{max-width:100%;color:var(--text);background:var(--bg);border:1px solid var(--muted);padding:8px}.api-operation .mock-result{min-height:64px}
 @media(max-width:760px){.page-intro{padding-top:36px}.review-content .table-wrap{max-width:100%;overflow:auto}.review-content .table-wrap table{min-width:0}.review-content .table-wrap th,.review-content .table-wrap td{padding:12px 8px}.review-content .section{padding-block:36px}}
