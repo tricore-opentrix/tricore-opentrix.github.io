@@ -18,6 +18,9 @@ export const approvedFiles = Object.freeze([
   'assets/pages.css',
   'assets/team.js',
   'roadmap.html',
+  'technology.html',
+  'assets/dxos-architecture.svg',
+  'assets/tokens.css',
 ]);
 export function buildSite() {
   mkdirSync(join(root, '.local'), { recursive: true });
